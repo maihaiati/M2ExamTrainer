@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34616.47
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "M2ExamCreator", "M2ExamCreator\M2ExamCreator.vbproj", "{D41D2C4B-836C-42D2-BE4A-9C3740CA2F2F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D41D2C4B-836C-42D2-BE4A-9C3740CA2F2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D41D2C4B-836C-42D2-BE4A-9C3740CA2F2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D41D2C4B-836C-42D2-BE4A-9C3740CA2F2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D41D2C4B-836C-42D2-BE4A-9C3740CA2F2F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {13A6A7BB-B784-4400-B3B0-1D20333362EF}
+	EndGlobalSection
+EndGlobal

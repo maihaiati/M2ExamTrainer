@@ -1,0 +1,59 @@
+Câu 1:Không gian màu RGB Mô tả màu sắc bằng các thành phần màu sắc nào?~ Red, Green, Blue. ~ Red, Grid, Blend. ~ Rose, Green, Blind. ~ Rind, Glue, Blood.
+Câu 2: Để khởi động photoshop chúng ta sẽ thực hiện như thế nào? ~ Start/Programs/Adobe photoshop CS.  ~ Start/Programs/Microsoft photoshop CS.  ~ Kích chuột vào biểu tượng short cut  Microsoft photoshop CS. ~ Vào Start/Run gõ vào photoshop.exe .
+Câu 3: Để bật tắt các thành phần của cửa sổ photoshop ta chọn mục nào trên thanh menu? ~ Vào menu Window. ~ Vào menu View. ~ Vào menu Filter. ~ Vào menu File. 
+Câu 4: Tạo một file ảnh mới ta sẽ thực hiện cách nào trong các cách sau? ~ File/New. ~ Nhấn tổ hợp phím Ctrl+Shift+N. ~ Nhấn tổ hợp phím Shift+N. ~ Nhấn chuột tại biểu tượng New trên tnh công cụ.
+Câu 5: Để lưu một file ảnh ta thực hiện cách nào trong các cách sau? ~ Tất cả phương án đều thực hiện được. ~ File/Save.  ~ File/ Save as. ~ Ctrl+S. 
+Câu 6: Khi tạo một file ảnh mới bằng cách vào File/New. Hộp thoại xuất hiện để chọn nền cho ảnh ta sử dụng mục nào? ~ Background Contents. ~ Color Profile. ~ Preset. ~ Resolution. 
+Câu 7: Khi tạo một file ảnh mới bằngcách vào File/New, hộp thoại xuất hiện để chọn chế độ màu cho ảnh ta sử dụng phương án nào? ~ Color Profile.  ~ Background Contents. ~ Preset. ~ Resolution. 
+Câu 8: Khi một file ảnh được tạo ra trong photoshop, mặc định lưu lại dưới phần mở rộng là gì? ~ *.PSD. ~ *.PDS. ~ *.JPG. ~ *.PNG. 
+Câu 9: Khi lưu ảnh, để lưu dưới định dạng mong muốn( jpg, gif, psd, png) ta phải chọn định dạng ảnh tại mục nào? ~ Format ~ File Name ~ Type ~ Save Options 
+Câu 10: Để sử dụng công cụ Zoom ta nhấn phím nào? ~ Z. ~ alt+Z. ~ shift+Z. ~ O. 
+Câu 11: Có mấy chế độ Zoom trong photoshop?~ Câu chế độ: Zoom In và Zoom Out. ~ Một chế độ: Zoom In. ~ Một chế độ: Zoom Out. ~ Ba chế độ: Zoom In, Zoom Out, Zoom Zezo. 
+Câu 12: Có thể sử dụng tổ hợp phím nào sau đây để phóng to ảnh? ~ Ctrl + Alt + +. ~ Ctrl+Shift+ +. ~ Alt+ +. ~ Shift+ +. 
+Câu 13: Ta có thể sử dụng tổ hợp phím nào sau đây để thu nhỏ hình ảnh? ~ Ctrl+ -. ~ Alt+ -. ~ Shift+ -. ~ Tab+- .
+Câu 14: Để sử dụng công  cụ chọn Marquee ta sử dụng phím tắt nào? ~ M. ~ A. ~ Q. ~ E. 
+Câu 15: Khi sử dụng công cụ Rectangular Marquee Tool để tạo vùng chọn là hình vuông ta giữ phím nào? ~ Shift. ~ Alt. ~ Ctrl. ~ Tab.
+Câu 16: Khi sử dụng công cụ Eliptical Marquee Tool để tạo tâm vùng chọn elip ta giữ phím nào? ~ Alt.~ Shift. ~ Space. ~ Ctrl. 
+Câu 17: Công cụ để cắt hình ảnh  là công cụ nào? ~ Crop. ~ Lasso Tool. ~ Marquee Tool. ~ Brush. 
+Câu 18: Khi sử dụng công cụ Brush ta sử dụng với phím tắt nào? ~ B.~ R. ~ H. ~ S. 
+Câu 19: Cọ vẽ (Brush) có mấy loại cơ bản? ~ Có 2 loại (Cứng và mềm). ~ Ba loại.  ~ Nhiều loại. ~ Một loại.
+Câu 20: Palette Navigator sử dụng để làm gì? ~ Quan sát các vùng ảnh. ~ Làm sáng các vùng ảnh. ~ Quản lý các layer ảnh.~ Quản lý các thao tác đã  thực hiện. 
+Câu 21: Palette Info cho biết thông tin gì? ~ Thông tin về ảnh, điểm ảnh, màu sắc. ~ Kích cỡ của ảnh. ~ Thông số về cấp độ sáng của ảnh. ~ Tính chất ảnh. 
+Câu 22: Palette History sử dụng để làm gì? ~ Quản lý các thao tác đã thực hiện. ~ Làm sáng các vùng ảnh. ~ Quản lý các layer ảnh. ~ Quan sát các vùng ảnh. 
+Câu 23: Trong Palette History, mặc định quản lý 20 thao tác xử lý gần nhất. Để thay đổi số lượng lưu trữ thao tác trên History ta chọn phương án nào? ~ Edit/ References. ~ File/References. ~ View/ References. ~ Window/References. 
+Câu 24: Để hủy bỏ thao tác vừa thực hiện chúng ta sẽ chọn phương án nào? ~ Ctrl+Y. ~ Vào Palette History. ~ Vào Select/Deselect. ~ Nhấn phím Delete. 
+Câu 25: Để hủy bỏ thao tác vừa thực hiện ta nhấn tổ hợp phím Ctrl+Z. Tuy nhiên trong Photoshop ta chỉ có nhấn tổ hợp phím Ctrl+Z bao nhiêu lần? ~ Một lần. ~ Nhiều lần. ~ Ba lần. ~ Năm lần.
+Câu 26: Để chọn vùng ngược lại với vùng đang chọn ta chọn phương án nào? ~ Select/Inverse hoặc Ctrl+Shift+I. ~ Ctrl+I.~ Layer/Inverse. ~ Image/Inverse. 
+Câu 27: Lệnh hủy bỏ vùng chọn, ta chọn phương án nào? ~ Ctrl+D. ~ Ctrl+U. ~ Ctrl+A. ~ Ctrl+I. 
+Câu 28: Để mở rộng vùng chọn đều neo theo đường viền vùng chọn, ta chọn phương án nào? ~ Select/Modify/Expand. ~ Select/Expand. ~ Select/Modify/Smooth. ~ Select/modify/Size. 
+Câu 29: Để thay đổi kích thước vùng chọn ta chọn phương án nào? ~ Select/Transform select. ~ Ctrl+T. ~ Edit/Free Transform. ~ Không thể thay đổi kích thước vùng chọn. 
+Câu 30: Để xoay, thay đổi kích thước, lật vùng ảnh được chọn ta chọn phương án nào? ~ Ctrl+T ~ Select/ Transform select ~ Select/ Feather ~ Ctrl+J 
+Câu 31: Để làm mềm mại đường viền vùng chọn ta chọn phương án nào? ~ Select/Modify/ Smooth. ~ Select/Father. ~ Select/Modify/Expand. ~ Select/ Modify/Contract. 
+Câu 32:  Để làm mờ đường biên của vùng chọn, ta thực hiện cách nào? ~ Select/Father  ~ Select/Modify/ Smooth ~ Select/Modify/Expand ~ Select/ Modify/Contract 
+<img src='./assets/h1.jpg'>Câu 33: Để tạo vùng chọn hình cây nấm trong hình ảnh trên. Ta có thể sử dụng công cụ nào trong công cụ sau?~ Magnetic Lasso Tool. ~ Crop. ~ Eliptical Marquee Tool. ~ Brush. 
+Câu 34: Công cụ Magnetic Lasso Tool dùng để chọn các vùng chọn nào? ~ Tự do có bám đường viền. ~ Tự do không bám đường viền. ~ Dạng hình học. ~ Có màu đồng nhất. 
+Câu 35: Công cụ Magic Wand dùng để chọn các vùng chọn nào? ~ Có màu tương đồng. ~ Tự do Không bám đường viền. ~ Dạng hình học. ~ Tự do có bám đường viền.
+Câu 36: Phím tắt nào trong các phím sau cho phép sử dụng công cụ chọn màu tương đồng?~ W. ~ L. ~ M. ~ C. 
+Câu 37: Tạo layer từ vùng chọn ta chọn phương án nào trong các phương án sau? ~ Ctrl+J.~ Ctrl+T. ~ Alt+J. ~ Shift+J. 
+Câu 38: Tạo layer từ vùng chọn ta chọn phương án nào trong các phương án sau?~ Menu Layer/ New/Layer via Copy. ~ Menu Image/Duplicate. ~ Menu Layer/New/Layer Set. ~ Menu Layer/ New/Layer via cut.
+Câu 39: Công cụ Crop là công cụ dùng để làm gì?~ Cắt hình ảnh theo ý muốn. ~ Chọn một hình dạng hình học. ~ Chọn các vùng hình ảnh có màu tương đồng. ~ Chọn vùng hình ảnh có kích thước tùy ý. 
+Câu 40:  Công cụ Eraser dùng để làm gì?~ Xóa vùng hình ảnh. ~ Chọn một hình dạng hình học. ~ Chọn các vùng hình ảnh có màu tương đồng. ~ Chọn vùng hình ảnh có kích thước tùy ý. 
+Câu 41: Khi sử dụng công cụ Magic Wand để chọn màu tương đồng. Trên thanh công cụ tùy biến. Thuộc tính Tolerance cho biết thông tin gì? ~ Mức độ tương đồng của màu. ~ Mức độ sắc nét của màu. ~ Thay đổi độ đậm nhạt của màu cần chọn. ~ Chọn màu cần chọn. 
+Câu 42: Trong nhóm công cụ Eraser, công cụ Magic Eraser Tool dùng để làm gì? ~ Xóa những màu tương đồng trả lại màu Background.  ~ Xóa vùng hình ảnh tùy ý. ~ Xóa theo màu Background. ~ Xóa theo màu nền. 
+Câu 43: Để chọn thêm nhiều vùng chọn khác nhau (thêm vùng chọn) ta giữ phím nào?~ Shift. ~ Alt. ~ Ctrl.~ Tab.
+Câu 44: Để loại bỏ bớt vùng chọn (loại bỏ vùng chọn) ta giữ phím nào?~ Alt.  ~ Shift .~ Ctrl.~ Tab. 
+<img src='./assets/h2.jpg'>Câu 45: Để xóa đi vùng chọn màu trắng của ảnh trên có được kết quả là hình 2 mà Không phải là ảnh số 1. Ta phải sử dụng công cụ nào? ~ Feather cho vùng chọn. ~ Smooth cho vùng chọn. ~ Expand cho vùng chọn. ~ Color range cho vùng chọn.
+<img src='./assets/h3.jpg'>Câu 46:  Để tách bằng hoa sen trong hình trên ra khỏi nền màu đen. Ta chọn công cụ chọn gì để tạo vùng chọn nhanh nhất trong các công cụ sau? ~ Magic Wand. ~ Lasso Tool. ~ Eliptical Marquee Tool. ~ Crop. 
+Câu 46: Sau khi thực hiện tạo vùng chọn, để thay đổi kích thước vùng ảnh được chọn ta thực hiện cách nào? ~ Edit/Free transform.~ Edit/Stroke. ~ Select/ Transform Select.~ Select/ Modify. 
+Câu 47: Để nhân đôi ảnh của vùng chọn ta nhấn tổ hợp phím nào? ~ Ctrl+J. ~ Ctrl+I .~ Ctrl+K. ~ Ctrl+C.
+<img src='./assets/h4.jpg'>Câu 50: Cho Layer chữ như hình 1 để tạo thành hình 2. Ta thực hiện cách nào? ~ Nhân đôi layer; Nhấn Ctrl+T; Kích phải chuột chọn Flip Vertical. ~ Nhân đôi layer; Select/Transform Select; Edit/ Transform/ Flip Vertical. ~ Nhân đôi layer; Nhấn tổ hợp phím Ctrl+T; Kích phải chuột chọn Flip Horizontal. ~ Nhân đôi layer; Nhân tổ hợp phím Ctrl+T; Kích phải chuột chọn/ Skew. 
+Câu 51: Palette Layer dùng để làm gì? ~ Quản lý các Layer có trong file ảnh. ~ Quản lý các sự kiện, thao tác xảy ra trên layer. ~ Quản lý màu sắc của các layer. ~ Quản lý các kênh màu. 
+Câu 52: Thay đổi mức Opacity là thay đổi cái gì? ~ Thay đổi mức độ nhìn thấy của layer 100% mức nhìn thấy cao nhất, 0% mức nhìn thấy thấp nhất. ~ Thay đổi mức độ hòa trộn của layer. ~ Thay đổi mức độ lọc layer. ~ Thay đổi mức độ nhìn thấy của layer 0% mức nhìn thấy cao nhất,10 0% mức nhìn thấy thấp nhất.
+<img src='./assets/h5.jpg'>Câu 53:  Để hòa trộn layer ta sử dụng mục nào trong các mục sau?~ Normal.~ Opacity. ~ Fill. ~ Lock. 
+<img src='./assets/h6.jpg'>Câu 54: Cho hình trên, Điều gì xảy ra nếu ta kích chuột tại nút số  3?~ Tạo một layer set chứa layer đang chọn.  ~ Thêm layer Style cho layer đang được chọn. ~ Tạo một layer mới. ~ Xóa layer đang họn 
+<img src='./assets/h6.jpg'>Câu 55: Cho hình trên điều gì xảy ra nếu ta kích chuột tại nút số  1 ?~ Tạo một layer set chứa layer đang chọn  ~ Thêm layer Style cho layer đang được chọn. ~ Tạo một layer mới. ~ Xóa layer đang họn
+Câu 56: Để đổ bóng cho layer ta sẽ chọn layer style dạng nào? ~ Drop Shadow. ~ Outer Glow. ~ Bevel and Emboss. ~ Color Overlay. 
+<img src='./assets/h7.jpg'>Câu 57:  Để tạo chữ như hình trên, ta phải thêm layer loại gì cho chữ? ~ Outer Glow. ~ Drop Show. ~ Color Overlay. ~ Gradient Overlay.
+<img src='./assets/h8.jpg'>Câu 58: Để tạo ra hình ảnh trên, ta phải thêm layer Style dạng gì cho chữ?~ Bevel and EmBoss. ~ Outer Glow. ~ Color Overlay. ~ Gradient Overlay. 
+<img src='./assets/h9.jpg'>Câu 59: Để tạo ra chữ như sau. Ta phải chọn Layer Style dạng gì cho chữ: ~ Gradient Overlay.  ~ Outer Glow. ~ Color Overlay. ~ Bevel and EmBoss. 
+Câu 60: Thêm một layer mask ta thực hiện cách nào?~ Chọn layer và vào menu Layer/ chọn Add Layer Mask .~ Chọn layer và vào menu Layer/ chọn Layer style. ~ Chọn layer và vào menu Layer/ chọn Add Vector Mask. ~ Chọn layer và vào menu Layer/ chọn  Create Clipping Mask.

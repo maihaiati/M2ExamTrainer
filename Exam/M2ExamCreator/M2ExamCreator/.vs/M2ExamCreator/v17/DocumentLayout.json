@@ -1,0 +1,84 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\TaiLieuHocTap\\M2Tool\\M2ExamTrainer\\Exam\\M2ExamCreator\\M2ExamCreator\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{D41D2C4B-836C-42D2-BE4A-9C3740CA2F2F}|M2ExamCreator\\M2ExamCreator.vbproj|d:\\tailieuhoctap\\m2tool\\m2examtrainer\\exam\\m2examcreator\\m2examcreator\\m2examcreator\\editexamdialog.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{D41D2C4B-836C-42D2-BE4A-9C3740CA2F2F}|M2ExamCreator\\M2ExamCreator.vbproj|solutionrelative:m2examcreator\\editexamdialog.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D41D2C4B-836C-42D2-BE4A-9C3740CA2F2F}|M2ExamCreator\\M2ExamCreator.vbproj|D:\\TaiLieuHocTap\\M2Tool\\M2ExamTrainer\\Exam\\M2ExamCreator\\M2ExamCreator\\m2examcreator\\editexamdialog.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "RelativeMoniker": "D:0:0:{D41D2C4B-836C-42D2-BE4A-9C3740CA2F2F}|M2ExamCreator\\M2ExamCreator.vbproj|solutionrelative:m2examcreator\\editexamdialog.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D41D2C4B-836C-42D2-BE4A-9C3740CA2F2F}|M2ExamCreator\\M2ExamCreator.vbproj|D:\\TaiLieuHocTap\\M2Tool\\M2ExamTrainer\\Exam\\M2ExamCreator\\M2ExamCreator\\m2examcreator\\maindialog.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}",
+      "RelativeMoniker": "D:0:0:{D41D2C4B-836C-42D2-BE4A-9C3740CA2F2F}|M2ExamCreator\\M2ExamCreator.vbproj|solutionrelative:m2examcreator\\maindialog.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D41D2C4B-836C-42D2-BE4A-9C3740CA2F2F}|M2ExamCreator\\M2ExamCreator.vbproj|D:\\TaiLieuHocTap\\M2Tool\\M2ExamTrainer\\Exam\\M2ExamCreator\\M2ExamCreator\\m2examcreator\\maindialog.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form",
+      "RelativeMoniker": "D:0:0:{D41D2C4B-836C-42D2-BE4A-9C3740CA2F2F}|M2ExamCreator\\M2ExamCreator.vbproj|solutionrelative:m2examcreator\\maindialog.vb||{2C015C70-C72C-11D0-88C3-00A0C9110049}|Form"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "EditExamDialog.vb",
+              "DocumentMoniker": "D:\\TaiLieuHocTap\\M2Tool\\M2ExamTrainer\\Exam\\M2ExamCreator\\M2ExamCreator\\M2ExamCreator\\EditExamDialog.vb",
+              "RelativeDocumentMoniker": "M2ExamCreator\\EditExamDialog.vb",
+              "ToolTip": "D:\\TaiLieuHocTap\\M2Tool\\M2ExamTrainer\\Exam\\M2ExamCreator\\M2ExamCreator\\M2ExamCreator\\EditExamDialog.vb",
+              "RelativeToolTip": "M2ExamCreator\\EditExamDialog.vb",
+              "ViewState": "AQIAABwAAAAAAAAAAAAgwAUAAAAaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2024-03-12T14:26:10.932Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "EditExamDialog.vb [Design]",
+              "DocumentMoniker": "D:\\TaiLieuHocTap\\M2Tool\\M2ExamTrainer\\Exam\\M2ExamCreator\\M2ExamCreator\\M2ExamCreator\\EditExamDialog.vb",
+              "RelativeDocumentMoniker": "M2ExamCreator\\EditExamDialog.vb",
+              "ToolTip": "D:\\TaiLieuHocTap\\M2Tool\\M2ExamTrainer\\Exam\\M2ExamCreator\\M2ExamCreator\\M2ExamCreator\\EditExamDialog.vb [Design]",
+              "RelativeToolTip": "M2ExamCreator\\EditExamDialog.vb [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2024-03-12T14:18:09.923Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MainDialog.vb",
+              "DocumentMoniker": "D:\\TaiLieuHocTap\\M2Tool\\M2ExamTrainer\\Exam\\M2ExamCreator\\M2ExamCreator\\M2ExamCreator\\MainDialog.vb",
+              "RelativeDocumentMoniker": "M2ExamCreator\\MainDialog.vb",
+              "ToolTip": "D:\\TaiLieuHocTap\\M2Tool\\M2ExamTrainer\\Exam\\M2ExamCreator\\M2ExamCreator\\M2ExamCreator\\MainDialog.vb",
+              "RelativeToolTip": "M2ExamCreator\\MainDialog.vb",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2024-03-12T14:12:10.052Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MainDialog.vb [Design]",
+              "DocumentMoniker": "D:\\TaiLieuHocTap\\M2Tool\\M2ExamTrainer\\Exam\\M2ExamCreator\\M2ExamCreator\\M2ExamCreator\\MainDialog.vb",
+              "RelativeDocumentMoniker": "M2ExamCreator\\MainDialog.vb",
+              "ToolTip": "D:\\TaiLieuHocTap\\M2Tool\\M2ExamTrainer\\Exam\\M2ExamCreator\\M2ExamCreator\\M2ExamCreator\\MainDialog.vb [Design]",
+              "RelativeToolTip": "M2ExamCreator\\MainDialog.vb [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
+              "WhenOpened": "2024-03-12T14:09:28.889Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

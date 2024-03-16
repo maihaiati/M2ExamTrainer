@@ -1,0 +1,35 @@
+Câu 80: Kết quả đoạn lệnh sau là bao nhiêu? 
+int addition (int a,int b) { return (a + b); }
+int main() {
+int z = addition(5,3);
+cout << z;
+return 0;
+}
+Câu 81: Kết quả đoạn lệnh sau là bao nhiêu? 
+int addition (int a,int b) { return (a - b); }
+int main() {
+int z = addition(5,3);
+cout << z;
+return 0;
+}
+Câu 82: Kết quả đoạn lệnh sau là bao nhiêu? 
+int addition (int a,int b) { return (a * b); }
+int main() {
+int z = addition(5,3);
+cout << z;
+return 0; 
+}
+Câu 83: Kết quả đoạn lệnh sau là bao nhiêu? 
+int addition (int a,int b) { return (a + b) }
+int main() {
+int z = addition(5,3);
+cout << z;
+return 0;
+}
+Câu 84: Kết quả đoạn lệnh sau là bao nhiêu? 
+int addition (int a,int b) { return (a + b); }
+int main() {
+int x = 5, y = 3, z = addition(7,2);
+cout << z;
+return 0;
+}

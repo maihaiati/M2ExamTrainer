@@ -1,0 +1,20 @@
+Module 1<br>Câu 1: Hệ thống tin học là gì?~ Là sử dụng máy tính để nhận thông tin~ Là phần mềm của máy tính.~ Là phần cứng của máy tính.~ Là phương tiện sử dụng máy tính để nhận và xử lý thông tin.
+Module 1<br>Câu 2: Hệ điều hành là một:~ Hệ thống phần cứng của máy tính.~ Hệ thống các chương trình hoạt động giữa người dùng và phần cứng của máy tính.~ Phần mềm soạn thảo văn bản.~ Hệ thống các phần mềm.
+Module 1<br>Câu 3: RAM là bộ nhớ?~ Truy xuất ngẫu nhiên.~ Chỉ đọc nội dung, không sửa chữa~ Có thể lưu giữ thông tin khi tắt máy~ Truy cập tuần tự
+Module 1<br>Câu 4: Bộ xử lý trung tâm viết tắt là:~ CU~ ALU~ CPU~ PC
+Module 1<br>Câu 5: Thiết bị nào sau đây không thuộc về bộ nhớ ngoài của máy tính?~ Floppy disk~ Monitor~ Hard disk~ USB disk
+Module 1<br>Câu 6: Thiết bị nào vừa là thiết bị vào, vừa là thiết bị ra:~ Monitor~ Modem~ Printer~ Mouse
+Module 1<br>Câu 7: Vì sao ổ đĩa mềm ít được sử dụng trong các máy tính đời mới sau này?~ Do đĩa mềm chóng hỏng.~ Do có thêm nhiều thiết bị mới lưu trữ tốt và thuận tiện hơn.~ Do dung lượng nhỏ~ Cả 3 phương án còn lại đều đúng
+Module 1<br>Câu 8: Các thành phần của CPU bao gồm:~ Clock, CU, ALU, Rom~ Clock, CU, ALU, MB~ Clock, CU, BUS, Registers~ Clock, CU, ALU, Registers
+Module 1<br>Câu 9: Bộ nhớ chính bao gồm~ Rom, Registers~ Ram, Registers~ Ram, Rom~ Ram, Rom, Registers
+Module 1<br>Câu 10: Thiết bị nào được ví như bộ não của máy tính?~ CPU~ Input~ Output~ ALU
+Module 2<br>Câu 1: Lệnh Start/Shutdown dùng để làm gì?~ Tắt máy tính.~ Khởi động lại máy tính.~ Tắt màn hình.~ Chuyển sang chế độ tiết kiệm điện.
+Module 2<br>Câu 2: Có bao nhiêu cách thoát khỏi một chương trình ứng dụng trong hệ điều hành Windows 7?~ 4~ 3~ 2~ 1
+Module 2<br>Câu 3: Khi khởi động máy tính, phần mềm nào sau đây sẽ được thực hiện trước?
+Module 2<br>Câu 4: Để tắt máy tính đúng cách người dùng chọn thao tác nào?
+Module 2<br>Câu 5: Quy trình tắt máy tính nào sau đây đảm bảo an toàn cho chương trình và dữ liệu
+Module 2<br>Câu 6: Trong Windows 7, để ngắt ổ đĩa USB một cách an toàn, có thể dùng cách nào sau đây?
+Module 2<br>Câu 7: Để thiết lập chế độ nghỉ màn hình (Screen Saver) trong Windows 7, sử dụng công cụ nào sau đây trong Control Panel?
+Module 2<br>Câu 8: Để khởi động lại máy tính, phát biểu nào dưới đây là sai?
+Module 2<br>Câu 9: Trong Control Panel của Windows 7, để thay đổi cách thức đăng nhập (login) và đăng xuất (logout), có thể dùng cách nào sau đây?
+Module 2<br>Câu 10: Trong hệ điều hành Windows 7, khi người dùng muốn rời khỏi máy tính, có thể dùng cách nào sau đây để khóa máy tính tạm thời?
