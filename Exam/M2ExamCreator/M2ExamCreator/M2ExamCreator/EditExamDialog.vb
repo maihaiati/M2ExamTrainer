@@ -8,8 +8,8 @@ Public Class EditExamDialog
 
 	Private numOfQues As Integer ' Biến lưu giữ index của câu hỏi cuối cùng
 	Private quesIndex As Integer ' Biến lưu giữ câu hỏi hiện thời đang trên màn hình
-	Private quesList = New String() {} ' Mảng lưu trữ danh sách câu hỏi
-	Private answerList = New String() {} ' Mảng lưu trữ danh sách đáp án
+	Private quesList As String() = New String() {} ' Mảng lưu trữ danh sách câu hỏi
+	Private answerList As String() = New String() {} ' Mảng lưu trữ danh sách đáp án
 	Private splitQues = New String() {} ' Mảng chứa các thành phần của câu hỏi đang làm việc
 	Private enableCommit As Boolean ' Biến lưu trữ trạng thái cho phép commit dữ liệu vào mảng hay không
 
@@ -120,6 +120,32 @@ Public Class EditExamDialog
 			saveData()
 		End If
 
+		lblQues.Text = "Câu hỏi " & quesNum + 1
+		quesIndex = quesNum
+		enableCommit = True
+
+		If quesList.Length <= 0 Then
+			previousQues.Enabled = False
+			nextQues.Enabled = False
+			cbbQues.Enabled = False
+			createQues.Enabled = False
+			delQues.Enabled = False
+			radioA.Enabled = False
+			radioB.Enabled = False
+			radioC.Enabled = False
+			radioD.Enabled = False
+			Return
+		End If
+
+		If quesList(quesNum).ToString = "" Or answerList(quesNum).ToString = "" Then
+			clearAllScreen()
+			previousQues.Enabled = False
+			nextQues.Enabled = False
+			cbbQues.Enabled = False
+			createQues.Enabled = False
+			Return
+		End If
+
 		splitQues = Split(quesList(quesNum), "~"c)
 		txtQues.Text = lineToMulti(splitQues(0))
 		For i = 1 To splitQues.Length - 1
@@ -147,10 +173,8 @@ Public Class EditExamDialog
 			Case Else
 				radioA.Checked = True
 		End Select
-		lblQues.Text = "Câu hỏi " & quesNum + 1
+
 		cbbQues.SelectedIndex = quesNum
-		quesIndex = quesNum
-		enableCommit = True
 	End Sub
 
 	Private Sub EditExamDialog_Load(sender As Object, e As EventArgs) Handles Me.Load
@@ -159,8 +183,8 @@ Public Class EditExamDialog
 			Dim answerFile As StreamWriter = File.CreateText(answerPath)
 			quesFile.Close()
 			answerFile.Close()
-			quesIndex = 1
-			numOfQues = 1
+			quesIndex = 0
+			numOfQues = quesList.Length - 1
 			lblQues.Text = "Câu hỏi " & quesIndex
 		Else
 			If File.Exists(quesPath) And File.Exists(answerPath) Then
@@ -253,10 +277,18 @@ Public Class EditExamDialog
 	End Sub
 
 	Private Sub createQues_Click(sender As Object, e As EventArgs) Handles createQues.Click
-
+		addQues("~~~~")
+		addAnswer("")
+		numOfQues = quesList.Length - 1
+		enableCommit = False
+		cbbQues.Items.Add(cbbQues.Items.Count + 1)
+		loadQues(numOfQues)
 	End Sub
 
 	Private Sub delQues_Click(sender As Object, e As EventArgs) Handles delQues.Click
+		If quesList.Length = 1 Then
+			Return
+		End If
 		removeQues(quesIndex)
 		removeAnswer(quesIndex)
 		numOfQues = quesList.Length - 1

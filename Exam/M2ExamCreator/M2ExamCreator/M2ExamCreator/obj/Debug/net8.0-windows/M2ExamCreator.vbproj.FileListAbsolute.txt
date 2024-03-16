@@ -16,3 +16,4 @@ D:\TaiLieuHocTap\M2Tool\M2ExamTrainer\Exam\M2ExamCreator\M2ExamCreator\M2ExamCre
 D:\TaiLieuHocTap\M2Tool\M2ExamTrainer\Exam\M2ExamCreator\M2ExamCreator\M2ExamCreator\obj\Debug\net8.0-windows\M2ExamCreator.Resources.resources
 D:\TaiLieuHocTap\M2Tool\M2ExamTrainer\Exam\M2ExamCreator\M2ExamCreator\M2ExamCreator\obj\Debug\net8.0-windows\M2ExamCreator.MainDialog.resources
 D:\TaiLieuHocTap\M2Tool\M2ExamTrainer\Exam\M2ExamCreator\M2ExamCreator\M2ExamCreator\obj\Debug\net8.0-windows\M2ExamCreator.EditExamDialog.resources
+D:\TaiLieuHocTap\M2Tool\M2ExamTrainer\Exam\M2ExamCreator\M2ExamCreator\M2ExamCreator\obj\Debug\net8.0-windows\M2ExamCreator.sourcelink.json
