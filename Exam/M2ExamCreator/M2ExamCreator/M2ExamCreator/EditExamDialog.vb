@@ -5,6 +5,7 @@ Public Class EditExamDialog
 	Public path As String
 	Public quesPath As String
 	Public answerPath As String
+	Public assetsPath As String
 
 	Private numOfQues As Integer ' Biến lưu giữ index của câu hỏi cuối cùng
 	Private quesIndex As Integer ' Biến lưu giữ câu hỏi hiện thời đang trên màn hình
@@ -69,15 +70,11 @@ Public Class EditExamDialog
 	End Sub
 
 	Private Sub addAnswer(answer As String)
-		' Thêm một phần tử mới vào mảng
 		If answerList IsNot Nothing Then
-			' Nếu mảng đã tồn tại, thêm phần tử mới vào cuối mảng và duy trì dữ liệu hiện có
 			ReDim Preserve answerList(answerList.Length)
 		Else
-			' Nếu mảng chưa được khởi tạo, khởi tạo mảng có 1 phần tử
 			ReDim answerList(0)
 		End If
-		' Gán giá trị cho phần tử mới
 		answerList(answerList.Length - 1) = answer
 	End Sub
 
@@ -124,25 +121,39 @@ Public Class EditExamDialog
 		quesIndex = quesNum
 		enableCommit = True
 
-		If quesList.Length <= 0 Then
-			previousQues.Enabled = False
-			nextQues.Enabled = False
-			cbbQues.Enabled = False
-			createQues.Enabled = False
+		'If quesList.Length <= 0 Then
+		'previousQues.Enabled = False
+		'nextQues.Enabled = False
+		'cbbQues.Enabled = False
+		'createQues.Enabled = False
+		'delQues.Enabled = False
+		'radioA.Enabled = False
+		'radioB.Enabled = False
+		'radioC.Enabled = False
+		'radioD.Enabled = False
+		'splitQues = {"", "", "", "", ""}
+		'Debug.WriteLine("Case 1: {0}", splitQues.Length)
+		'Return
+		'End If
+
+		If numOfQues = 0 Then
 			delQues.Enabled = False
-			radioA.Enabled = False
-			radioB.Enabled = False
-			radioC.Enabled = False
-			radioD.Enabled = False
-			Return
 		End If
 
-		If quesList(quesNum).ToString = "" Or answerList(quesNum).ToString = "" Then
+		If quesList(quesNum) = "~ ~ ~ ~ " Then
+			enableCommit = False
 			clearAllScreen()
 			previousQues.Enabled = False
 			nextQues.Enabled = False
 			cbbQues.Enabled = False
 			createQues.Enabled = False
+			radioA.Enabled = False
+			radioB.Enabled = False
+			radioC.Enabled = False
+			radioD.Enabled = False
+			cbbQues.SelectedIndex = quesNum
+			splitQues = {"", "", "", "", ""}
+			enableCommit = True
 			Return
 		End If
 
@@ -151,17 +162,22 @@ Public Class EditExamDialog
 		For i = 1 To splitQues.Length - 1
 			Select Case i
 				Case 1
-					txtA.Text = splitQues(1)
+					txtA.Text = lineToMulti(splitQues(1))
 				Case 2
-					txtB.Text = splitQues(2)
+					txtB.Text = lineToMulti(splitQues(2))
 				Case 3
-					txtC.Text = splitQues(3)
+					txtC.Text = lineToMulti(splitQues(3))
 				Case 4
-					txtD.Text = splitQues(4)
+					txtD.Text = lineToMulti(splitQues(4))
 			End Select
 		Next
 
 		Select Case answerList(quesNum)
+			Case -1
+				radioA.Checked = False
+				radioB.Checked = False
+				radioC.Checked = False
+				radioD.Checked = False
 			Case 1
 				radioA.Checked = True
 			Case 2
@@ -181,11 +197,19 @@ Public Class EditExamDialog
 		If createExam Then
 			Dim quesFile As StreamWriter = File.CreateText(quesPath)
 			Dim answerFile As StreamWriter = File.CreateText(answerPath)
+			If Not Directory.Exists(assetsPath) Then
+				Directory.CreateDirectory(assetsPath)
+			End If
 			quesFile.Close()
 			answerFile.Close()
+			addQues("~ ~ ~ ~ ")
+			addAnswer("-1")
+			cbbQues.Items.Add(cbbQues.Items.Count + 1)
 			quesIndex = 0
 			numOfQues = quesList.Length - 1
 			lblQues.Text = "Câu hỏi " & quesIndex
+			enableCommit = False
+			loadQues(0)
 		Else
 			If File.Exists(quesPath) And File.Exists(answerPath) Then
 				Dim quesFile As New StreamReader(quesPath)
@@ -211,13 +235,19 @@ Public Class EditExamDialog
 					Close()
 				End If
 
+				If quesList.Length = 0 Then
+					addQues("~ ~ ~ ~ ")
+					addAnswer("-1")
+				End If
+
 				numOfQues = quesList.Length - 1
 
 				For i = 1 To quesList.Length
 					cbbQues.Items.Add(i)
 				Next
 
-				loadQues(0)
+				enableCommit = False
+				loadQues(numOfQues)
 			Else
 				MsgBox("Không tìm thấy đề thi trong thư mục này. Vui lòng tạo đề thi mới!")
 				Close()
@@ -277,16 +307,21 @@ Public Class EditExamDialog
 	End Sub
 
 	Private Sub createQues_Click(sender As Object, e As EventArgs) Handles createQues.Click
-		addQues("~~~~")
-		addAnswer("")
+		addQues("~ ~ ~ ~ ")
+		addAnswer("-1")
 		numOfQues = quesList.Length - 1
+		If numOfQues > 0 And delQues.Enabled = False Then
+			delQues.Enabled = True
+		End If
 		enableCommit = False
 		cbbQues.Items.Add(cbbQues.Items.Count + 1)
 		loadQues(numOfQues)
 	End Sub
 
 	Private Sub delQues_Click(sender As Object, e As EventArgs) Handles delQues.Click
-		If quesList.Length = 1 Then
+		If numOfQues = 0 Then
+			MsgBox("Không thể xoá tất cả câu hỏi trong đề")
+			delQues.Enabled = False
 			Return
 		End If
 		removeQues(quesIndex)
@@ -314,7 +349,7 @@ Public Class EditExamDialog
 			createQues.Enabled = False
 			If txtQues.Text <> splitQues(0) And enableCommit Then
 				splitQues(0) = txtQues.Text
-				commitToQues(quesIndex, 0, splitQues(0))
+				commitToQues(quesIndex, 0, multiToLine(splitQues(0)))
 			End If
 		Else
 			previousQues.Enabled = True
@@ -323,7 +358,7 @@ Public Class EditExamDialog
 			createQues.Enabled = True
 			If txtQues.Text <> splitQues(0) And enableCommit Then
 				splitQues(0) = txtQues.Text
-				commitToQues(quesIndex, 0, splitQues(0))
+				commitToQues(quesIndex, 0, multiToLine(splitQues(0)))
 			End If
 		End If
 	End Sub
@@ -334,13 +369,13 @@ Public Class EditExamDialog
 			radioA.Enabled = False
 			If txtA.Text <> splitQues(1) And enableCommit Then
 				splitQues(1) = txtA.Text
-				commitToQues(quesIndex, 1, splitQues(1))
+				commitToQues(quesIndex, 1, multiToLine(splitQues(1)))
 			End If
 		Else
 			radioA.Enabled = True
 			If txtA.Text <> splitQues(1) And enableCommit Then
 				splitQues(1) = txtA.Text
-				commitToQues(quesIndex, 1, splitQues(1))
+				commitToQues(quesIndex, 1, multiToLine(splitQues(1)))
 			End If
 		End If
 	End Sub
@@ -351,13 +386,13 @@ Public Class EditExamDialog
 			radioB.Enabled = False
 			If txtB.Text <> splitQues(2) And enableCommit Then
 				splitQues(2) = txtB.Text
-				commitToQues(quesIndex, 2, splitQues(2))
+				commitToQues(quesIndex, 2, multiToLine(splitQues(2)))
 			End If
 		Else
 			radioB.Enabled = True
 			If txtB.Text <> splitQues(2) And enableCommit Then
 				splitQues(2) = txtB.Text
-				commitToQues(quesIndex, 2, splitQues(2))
+				commitToQues(quesIndex, 2, multiToLine(splitQues(2)))
 			End If
 		End If
 	End Sub
@@ -368,13 +403,13 @@ Public Class EditExamDialog
 			radioC.Enabled = False
 			If txtC.Text <> splitQues(3) And enableCommit Then
 				splitQues(3) = txtC.Text
-				commitToQues(quesIndex, 3, splitQues(3))
+				commitToQues(quesIndex, 3, multiToLine(splitQues(3)))
 			End If
 		Else
 			radioC.Enabled = True
 			If txtC.Text <> splitQues(3) And enableCommit Then
 				splitQues(3) = txtC.Text
-				commitToQues(quesIndex, 3, splitQues(3))
+				commitToQues(quesIndex, 3, multiToLine(splitQues(3)))
 			End If
 		End If
 	End Sub
@@ -385,13 +420,13 @@ Public Class EditExamDialog
 			radioD.Enabled = False
 			If txtD.Text <> splitQues(4) And enableCommit Then
 				splitQues(4) = txtD.Text
-				commitToQues(quesIndex, 4, splitQues(4))
+				commitToQues(quesIndex, 4, multiToLine(splitQues(4)))
 			End If
 		Else
 			radioD.Enabled = True
 			If txtD.Text <> splitQues(4) And enableCommit Then
 				splitQues(4) = txtD.Text
-				commitToQues(quesIndex, 4, splitQues(4))
+				commitToQues(quesIndex, 4, multiToLine(splitQues(4)))
 			End If
 		End If
 	End Sub

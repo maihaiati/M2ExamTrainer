@@ -7,6 +7,7 @@ Public Class MainDialog
 			EditExamDialog.path = folderDialog.SelectedPath
 			EditExamDialog.quesPath = folderDialog.SelectedPath & "\questions.txt"
 			EditExamDialog.answerPath = folderDialog.SelectedPath & "\answers.txt"
+			EditExamDialog.assetsPath = folderDialog.SelectedPath & "\assets"
 			EditExamDialog.createExam = True
 			EditExamDialog.Show()
 			Hide()
@@ -19,6 +20,7 @@ Public Class MainDialog
 			EditExamDialog.path = folderDialog.SelectedPath
 			EditExamDialog.quesPath = folderDialog.SelectedPath & "\questions.txt"
 			EditExamDialog.answerPath = folderDialog.SelectedPath & "\answers.txt"
+			EditExamDialog.assetsPath = folderDialog.SelectedPath & "\assets"
 			EditExamDialog.createExam = False
 			EditExamDialog.Show()
 			Hide()

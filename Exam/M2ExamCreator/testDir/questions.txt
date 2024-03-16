@@ -156,20 +156,7 @@ Câu&nbsp;155:&nbsp;Con&nbsp;trỏ&nbsp;của&nbsp;con&nbsp;trỏ&nbsp;là&nbsp;
 Câu&nbsp;156:&nbsp;Con&nbsp;trỏ&nbsp;hàm&nbsp;là&nbsp;gì?<br>~  Là con trỏ không có kiểu, do đó nó có thể trỏ đến bất kỳ kiểu nào~  Là không chứa địa chỉ nào~  Là con trỏ chứa địa chỉ trỏ đến con trỏ khác~  Là dạng con trỏ được sử dụng để trỏ đến một hàm nào đó
 Câu&nbsp;157:&nbsp;Hàm&nbsp;sau&nbsp;thực&nbsp;hiện&nbsp;công&nbsp;việc&nbsp;gì?&nbsp;<br>void&nbsp;incr(void&nbsp;*&nbsp;data,int&nbsp;size)&nbsp;{<br>if&nbsp;(&nbsp;(size&nbsp;==&nbsp;sizeof(char)&nbsp;)<br>{&nbsp;char*&nbsp;cp;&nbsp;cp&nbsp;=&nbsp;(char*)data;&nbsp;++(*cp);&nbsp;}<br>else&nbsp;if&nbsp;(&nbsp;(size&nbsp;==&nbsp;sizeof(int)&nbsp;)<br>{&nbsp;int*&nbsp;ip;&nbsp;ip&nbsp;=&nbsp;(int*)data;&nbsp;++(*ip);&nbsp;}<br>}<br>~  Tăng giá trị số nguyên lên 1 đơn vị~  Chuyển sang ký tự đằng sau của ký tự hiện thời~  Là hàm tăng sử dụng cho cả số nguyên và ký tự, dùng để tăng 1 đơn vị~  Không có đáp án đúng
 Câu&nbsp;158:&nbsp;Đoạn&nbsp;lệnh&nbsp;sau&nbsp;có&nbsp;kết&nbsp;quả&nbsp;là&nbsp;bao&nbsp;nhiêu?&nbsp;<br>void&nbsp;incr(void&nbsp;*&nbsp;data,int&nbsp;size)&nbsp;{<br>if&nbsp;(&nbsp;(size&nbsp;==&nbsp;sizeof(char)&nbsp;)<br>{&nbsp;char*&nbsp;cp;&nbsp;cp&nbsp;=&nbsp;(char*)data;&nbsp;++(*cp);&nbsp;}<br>else&nbsp;if&nbsp;(&nbsp;(size&nbsp;==&nbsp;sizeof(int)&nbsp;)<br>{&nbsp;int*&nbsp;ip;&nbsp;ip&nbsp;=&nbsp;(int*)data;&nbsp;++(*ip);&nbsp;}<br>}<br>int&nbsp;main()&nbsp;{<br>char&nbsp;a&nbsp;=&nbsp;‘y’;&nbsp;int&nbsp;b&nbsp;=&nbsp;1602;<br>incr(a,sizeof(a));<br>cout&nbsp;&lt;&lt;&nbsp;a;<br>return&nbsp;0;<br>}<br>~  x~  y~  z~  Lỗi biên dịch
-Câu 159: Đoạn lệnh sau có kết quả là bao nhiêu? 
-void incr(void * data,int size) {
-if ( (size == sizeof(char) )
-{ char* cp; cp = (char*)data; ++(*cp); }
-else if ( (size == sizeof(int) )
-{ int* ip; ip = (int*)data; ++(*ip); }
-}
-int main() {
-char a = ‘y’; int b = 1602;
-incr(&b,sizeof(a));
-cout << b;
-return 0;
-}
-~  1601~  1602~  1603~  Lỗi biên dịch
+Câu&nbsp;159:&nbsp;Đoạn&nbsp;lệnh&nbsp;sau&nbsp;có&nbsp;kết&nbsp;quả&nbsp;là&nbsp;bao&nbsp;nhiêu?&nbsp;<br>void&nbsp;incr(void&nbsp;*&nbsp;data,int&nbsp;size)&nbsp;{<br>if&nbsp;(&nbsp;(size&nbsp;==&nbsp;sizeof(char)&nbsp;)<br>{&nbsp;char*&nbsp;cp;&nbsp;cp&nbsp;=&nbsp;(char*)data;&nbsp;++(*cp);&nbsp;}<br>else&nbsp;if&nbsp;(&nbsp;(size&nbsp;==&nbsp;sizeof(int)&nbsp;)<br>{&nbsp;int*&nbsp;ip;&nbsp;ip&nbsp;=&nbsp;(int*)data;&nbsp;++(*ip);&nbsp;}<br>}<br>int&nbsp;main()&nbsp;{<br>char&nbsp;a&nbsp;=&nbsp;‘y’;&nbsp;int&nbsp;b&nbsp;=&nbsp;1602;<br>incr(&b,sizeof(a));<br>cout&nbsp;&lt;&lt;&nbsp;b;<br>return&nbsp;0;<br>}<br>~  1601~  1602~  1603~  Lỗi biên dịch
 Câu&nbsp;160:&nbsp;Đoạn&nbsp;lệnh&nbsp;sau&nbsp;có&nbsp;kết&nbsp;quả&nbsp;là&nbsp;bao&nbsp;nhiêu?&nbsp;<br>int&nbsp;addition&nbsp;(int&nbsp;a,int&nbsp;b)&nbsp;{&nbsp;return&nbsp;(a&nbsp;+&nbsp;b);&nbsp;}<br>int&nbsp;subtraction&nbsp;(int&nbsp;a,int&nbsp;b)&nbsp;{&nbsp;return&nbsp;(a&nbsp;–&nbsp;b);&nbsp;}<br>int&nbsp;operation&nbsp;(int&nbsp;a,int&nbsp;b,int&nbsp;(*functocall)&nbsp;(int,int)&nbsp;{&nbsp;return&nbsp;(*functocall)(a,b);&nbsp;}<br>int&nbsp;main()&nbsp;{<br>int&nbsp;m,n;&nbsp;int&nbsp;(*minus)(int,int)&nbsp;=&nbsp;subtraction;<br>m&nbsp;=&nbsp;operation(7,5,addition);<br>cout&nbsp;&lt;&lt;&nbsp;m;<br>return&nbsp;0;&nbsp;<br>}<br>~  12~  8~20~  Lỗi biên dịch
 Câu&nbsp;161:&nbsp;Đoạn&nbsp;lệnh&nbsp;sau&nbsp;có&nbsp;kết&nbsp;quả&nbsp;là&nbsp;bao&nbsp;nhiêu?&nbsp;<br>int&nbsp;addition&nbsp;(int&nbsp;a,int&nbsp;b)&nbsp;{&nbsp;return&nbsp;(a&nbsp;+&nbsp;b);&nbsp;}<br>int&nbsp;subtraction&nbsp;(int&nbsp;a,int&nbsp;b)&nbsp;{&nbsp;return&nbsp;(a&nbsp;–&nbsp;b);&nbsp;}<br>int&nbsp;operation&nbsp;(int&nbsp;a,int&nbsp;b,int&nbsp;(*functocall)&nbsp;(int,int)&nbsp;{&nbsp;return&nbsp;(*functocall)(a,b);&nbsp;}<br>int&nbsp;main()&nbsp;{<br>int&nbsp;m,n;&nbsp;int&nbsp;(*minus)(int,int)&nbsp;=&nbsp;subtraction;<br>m&nbsp;=&nbsp;operation(7,5,addition);<br>n&nbsp;=&nbsp;operation(20,m,minus);<br>cout&nbsp;&lt;&lt;&nbsp;n;<br>return&nbsp;0;<br>}<br>~  12~  8~  20~  Lỗi biên dịch
 Câu&nbsp;162:&nbsp;Để&nbsp;khai&nbsp;báo&nbsp;bộ&nbsp;nhớ&nbsp;động&nbsp;trong&nbsp;C++,&nbsp;ta&nbsp;dùng&nbsp;lệnh&nbsp;nào?<br>~  malloc~create~new~register
@@ -179,30 +166,5 @@ Câu&nbsp;165:&nbsp;Đoạn&nbsp;lệnh&nbsp;sau&nbsp;có&nbsp;kết&nbsp;quả&
 Câu&nbsp;166:&nbsp;Cách&nbsp;khai&nbsp;báo&nbsp;dữ&nbsp;liệu&nbsp;cấu&nbsp;trúc&nbsp;trong&nbsp;C++&nbsp;(chọn&nbsp;cách&nbsp;đầy&nbsp;đủ&nbsp;nhất):”<br>~  struct <Tên kiểu dữ liệu> { <Các dữ liệu thành phần> }~  struct <Tên kiểu dữ liệu> { <Các dữ liệu thành phần>}[Danh sách tên biến]~  struct <Tên kiểu dữ liệu> { <Các dữ liệu thành phần> };~  struct <Tên kiểu dữ liệu> { <Các dữ liệu thành phần>}[Danh sách tên biến];
 Câu&nbsp;167:&nbsp;Khi&nbsp;sử&nbsp;dụng&nbsp;con&nbsp;trỏ&nbsp;với&nbsp;dữ&nbsp;liệu&nbsp;cấu&nbsp;trúc,&nbsp;để&nbsp;sử&nbsp;dụng&nbsp;dữ&nbsp;liệu&nbsp;thành&nbsp;viên,&nbsp;ta&nbsp;sử&nbsp;dụng&nbsp;ký&nbsp;hiệu&nbsp;gì?<br>~  Dấu “.”~  Dấu “->“~  Dấu “:”~  Dấu “::”
 Câu&nbsp;168:&nbsp;Kết&nbsp;quả&nbsp;khi&nbsp;thực&nbsp;hiện&nbsp;đoạn&nbsp;lệnh&nbsp;trên&nbsp;là&nbsp;bao&nbsp;nhiêu?&nbsp;<br>char&nbsp;hoten[]&nbsp;=&nbsp;“Dai&nbsp;hoc&nbsp;Kinh&nbsp;doanh&nbsp;va&nbsp;Cong&nbsp;nghe&nbsp;Ha&nbsp;noi”;<br>int&nbsp;len&nbsp;=&nbsp;strlen(hoten);<br>cout&nbsp;&lt;&lt;&nbsp;len++&nbsp;&lt;&lt;&nbsp;endl;"<br>~  37~  38~  39~  Đoạn lệnh báo lỗi
-Câu 169: Cho khối lệnh như sau:
-switch (thu) {
-    case 2:
-        cout <<“Van, Toan”;
-        break;
-    case 3:
-        cout << “Hoa, Ly”;
-        break;
-    default:
-        cout << “Ngay nghi”;
-        break;
-} 
-Khối lệnh trên sẽ cho kết quả là bao nhiêu nếu ta nhập thu = 1?
-~  Van, Toan~  Hoa, Ly~  Ngay nghi~  Không có đáp án đúng
-Câu 170: Cho khối lệnh như sau:
-switch (thu) {
-    case 2:
-        cout << “Van, Toan”;
-        break;
-    case 3:
-        cout << “Hoa, Ly”;
-        break;
-    default:
-        cout << “Ngay nghi”;
-        break;
-} 
-~  Van, Toan~  Hoa, Ly~  Ngay nghi~  Không có đáp án đúng
+Câu&nbsp;169:&nbsp;Cho&nbsp;khối&nbsp;lệnh&nbsp;như&nbsp;sau:<br>switch&nbsp;(thu)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;2:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout&nbsp;&lt;&lt;“Van,&nbsp;Toan”;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br>&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;3:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout&nbsp;&lt;&lt;&nbsp;“Hoa,&nbsp;Ly”;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br>&nbsp;&nbsp;&nbsp;&nbsp;default:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout&nbsp;&lt;&lt;&nbsp;“Ngay&nbsp;nghi”;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br>}&nbsp;<br>Khối&nbsp;lệnh&nbsp;trên&nbsp;sẽ&nbsp;cho&nbsp;kết&nbsp;quả&nbsp;là&nbsp;bao&nbsp;nhiêu&nbsp;nếu&nbsp;ta&nbsp;nhập&nbsp;thu&nbsp;=&nbsp;1?<br>~  Van, Toan~  Hoa, Ly~  Ngay nghi~  Không có đáp án đúng
+Câu&nbsp;170:&nbsp;Cho&nbsp;khối&nbsp;lệnh&nbsp;như&nbsp;sau:<br>switch&nbsp;(thu)&nbsp;{<br>&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;2:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout&nbsp;&lt;&lt;&nbsp;“Van,&nbsp;Toan”;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br>&nbsp;&nbsp;&nbsp;&nbsp;case&nbsp;3:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout&nbsp;&lt;&lt;&nbsp;“Hoa,&nbsp;Ly”;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br>&nbsp;&nbsp;&nbsp;&nbsp;default:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cout&nbsp;&lt;&lt;&nbsp;“Ngay&nbsp;nghi”;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br>}&nbsp;<br>~  Van, Toan~  Hoa, Ly~  Ngay nghi~&nbsp;&nbsp;Không&nbsp;có&nbsp;đáp&nbsp;án&nbsp;đúng
