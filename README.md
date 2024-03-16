@@ -3,6 +3,7 @@ Cấu trúc đề phần mềm M2ExamTrainer (Không kèm dấu <>):
 
 Cấu trúc:
 <thẻ image chèn ảnh><câu hỏi 1> ~ <đáp án 1> ~ <đáp án 2> ~ <đáp án 3> ~ <đáp án 4>
+
 <thẻ image chèn ảnh><câu hỏi 2> ~ <đáp án 1> ~ <đáp án 2> ~ <đáp án 3> ~ <đáp án 4>
 
 Đáp án ở file answers.txt ở dòng nào sẽ là đáp án cho câu hỏi ở dòng tương tự trong file questions.txt
