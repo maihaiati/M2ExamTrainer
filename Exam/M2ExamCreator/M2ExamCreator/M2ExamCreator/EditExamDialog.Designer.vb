@@ -47,6 +47,7 @@ Partial Class EditExamDialog
 		chkAutoSave = New CheckBox()
 		btnBrowImg = New Button()
 		picPreview = New PictureBox()
+		btnDelImage = New Button()
 		grpChooseAns.SuspendLayout()
 		CType(picPreview, ComponentModel.ISupportInitialize).BeginInit()
 		SuspendLayout()
@@ -258,7 +259,7 @@ Partial Class EditExamDialog
 		' btnSave
 		' 
 		btnSave.Font = New Font("Segoe UI", 12F, FontStyle.Bold)
-		btnSave.Location = New Point(590, 582)
+		btnSave.Location = New Point(590, 612)
 		btnSave.Name = "btnSave"
 		btnSave.Size = New Size(193, 45)
 		btnSave.TabIndex = 17
@@ -278,7 +279,7 @@ Partial Class EditExamDialog
 		' chkAutoSave
 		' 
 		chkAutoSave.AutoSize = True
-		chkAutoSave.Location = New Point(590, 557)
+		chkAutoSave.Location = New Point(590, 587)
 		chkAutoSave.Name = "chkAutoSave"
 		chkAutoSave.Size = New Size(193, 19)
 		chkAutoSave.TabIndex = 19
@@ -288,7 +289,7 @@ Partial Class EditExamDialog
 		' btnBrowImg
 		' 
 		btnBrowImg.Font = New Font("Segoe UI", 11F)
-		btnBrowImg.Location = New Point(590, 484)
+		btnBrowImg.Location = New Point(590, 456)
 		btnBrowImg.Name = "btnBrowImg"
 		btnBrowImg.Size = New Size(193, 43)
 		btnBrowImg.TabIndex = 21
@@ -305,11 +306,22 @@ Partial Class EditExamDialog
 		picPreview.TabIndex = 22
 		picPreview.TabStop = False
 		' 
+		' btnDelImage
+		' 
+		btnDelImage.Font = New Font("Segoe UI", 11F)
+		btnDelImage.Location = New Point(590, 519)
+		btnDelImage.Name = "btnDelImage"
+		btnDelImage.Size = New Size(193, 43)
+		btnDelImage.TabIndex = 23
+		btnDelImage.Text = "Xoá ảnh"
+		btnDelImage.UseVisualStyleBackColor = True
+		' 
 		' EditExamDialog
 		' 
 		AutoScaleDimensions = New SizeF(7F, 15F)
 		AutoScaleMode = AutoScaleMode.Font
 		ClientSize = New Size(1162, 669)
+		Controls.Add(btnDelImage)
 		Controls.Add(picPreview)
 		Controls.Add(btnBrowImg)
 		Controls.Add(chkAutoSave)
@@ -368,4 +380,5 @@ Partial Class EditExamDialog
 	Friend WithEvents chkAutoSave As CheckBox
 	Friend WithEvents btnBrowImg As Button
 	Friend WithEvents picPreview As PictureBox
+	Friend WithEvents btnDelImage As Button
 End Class

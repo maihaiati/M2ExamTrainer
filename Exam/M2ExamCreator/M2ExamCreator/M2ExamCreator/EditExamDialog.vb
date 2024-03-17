@@ -2,7 +2,7 @@
 Public Class EditExamDialog
 	' Các biến liên quan đến đường dẫn file
 	Public createExam As Boolean
-	Public path As String
+	Public examPath As String
 	Public quesPath As String
 	Public answerPath As String
 	Public assetsPath As String
@@ -254,12 +254,16 @@ Public Class EditExamDialog
 			End If
 
 			enableCommit = True
-			Me.Text = "M2ExamCreator - " & path
+			Me.Text = "M2ExamCreator - " & examPath
 		End If
 	End Sub
 
 	Private Sub EditExamDialog_Closed(sender As Object, e As EventArgs) Handles Me.Closed
 		MainDialog.Show()
+	End Sub
+
+	Private Sub btnDelImage_Click(sender As Object, e As EventArgs) Handles btnDelImage.Click
+		picPreview.Image = Nothing
 	End Sub
 
 	Private Sub btnBrowImg_Click(sender As Object, e As EventArgs) Handles btnBrowImg.Click
@@ -274,7 +278,7 @@ Public Class EditExamDialog
 		' Thiết lập bộ lọc cho các tệp tin
 		fileDialog.Filter = "Tệp tin hình ảnh|*.jpg;*.jpeg;*.png|Tất cả các tệp tin|*.*"
 
-		' Chỉ cho phép chọn nhiều tệp tin
+		' Chỉ cho phép chọn một tệp tin
 		fileDialog.Multiselect = False
 
 		' Mở hộp thoại và kiểm tra kết quả
@@ -282,6 +286,20 @@ Public Class EditExamDialog
 			' Xử lý các tệp tin đã chọn ở đây
 			picPreview.Image = Image.FromFile(fileDialog.FileName)
 		End If
+
+		Try
+			If Not Directory.Exists(assetsPath) Then
+				Directory.CreateDirectory(assetsPath)
+			End If
+
+			' Sao chép tập tin từ đường dẫn nguồn đến thư mục đích
+			File.Copy(fileDialog.FileName, Path.Combine(assetsPath, Path.GetFileName(fileDialog.FileName)), False)
+
+			splitQues(0) = "<img src='.\assets\" & Path.GetFileName(fileDialog.FileName) & "'><br>" & txtQues.Text
+			commitToQues(quesIndex, 0, multiToLine(splitQues(0)))
+		Catch ex As Exception
+			MsgBox(ex.Message)
+		End Try
 	End Sub
 
 	Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
