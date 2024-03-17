@@ -338,8 +338,8 @@ class Ui_M2ExamTrainer(object):
         self.screen.append('')
         for i in range(1, len(questions[numOfQues])):
             self.screen.append('')
-            self.screen.append(chr(i + 64) + ": " + questions[numOfQues][i])
-            if i == 4:
+            self.screen.append(chr(i + 64) + ": " + str(questions[numOfQues][i]).replace("&nbsp;", " "))
+            if i == 4: # Chương trình mới chỉ hỗ trợ 4 đáp án nên có nhiều đáp án hơn thì câu lệnh này sẽ ngăn chặn gán tiếp
                 break
         if choosed[numOfQues]:
             self.screen.append('')
