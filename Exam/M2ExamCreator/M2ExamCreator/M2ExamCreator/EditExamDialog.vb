@@ -1,4 +1,4 @@
-﻿Imports System.IO
+﻿Imports System.IO ' TODO: Code phần xử lý load câu hỏi có chứa tag ảnh
 Public Class EditExamDialog
 	' Các biến liên quan đến đường dẫn file
 	Public createExam As Boolean
