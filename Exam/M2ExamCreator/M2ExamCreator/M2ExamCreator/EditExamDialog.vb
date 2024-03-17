@@ -295,8 +295,8 @@ Public Class EditExamDialog
 			' Sao chép tập tin từ đường dẫn nguồn đến thư mục đích
 			File.Copy(fileDialog.FileName, Path.Combine(assetsPath, Path.GetFileName(fileDialog.FileName)), False)
 
-			splitQues(0) = "<img src='.\assets\" & Path.GetFileName(fileDialog.FileName) & "'><br>" & txtQues.Text
-			commitToQues(quesIndex, 0, multiToLine(splitQues(0)))
+			splitQues(0) = txtQues.Text
+			commitToQues(quesIndex, 0, "<img src='.\assets\" & Path.GetFileName(fileDialog.FileName) & "'><br>" & multiToLine(splitQues(0)))
 		Catch ex As Exception
 			MsgBox(ex.Message)
 		End Try
