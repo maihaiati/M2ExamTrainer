@@ -313,7 +313,7 @@ Partial Class EditExamDialog
 		btnDelImage.Name = "btnDelImage"
 		btnDelImage.Size = New Size(193, 43)
 		btnDelImage.TabIndex = 23
-		btnDelImage.Text = "Xoá ảnh"
+		btnDelImage.Text = "Bỏ chèn ảnh"
 		btnDelImage.UseVisualStyleBackColor = True
 		' 
 		' EditExamDialog

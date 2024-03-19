@@ -25,6 +25,7 @@ Partial Class MainDialog
 		Label1 = New Label()
 		btnCreateExam = New Button()
 		btnOpenExam = New Button()
+		Label2 = New Label()
 		SuspendLayout()
 		' 
 		' Label1
@@ -57,11 +58,21 @@ Partial Class MainDialog
 		btnOpenExam.Text = "Mở đề thi"
 		btnOpenExam.UseVisualStyleBackColor = True
 		' 
+		' Label2
+		' 
+		Label2.AutoSize = True
+		Label2.Location = New Point(9, 215)
+		Label2.Name = "Label2"
+		Label2.Size = New Size(350, 15)
+		Label2.TabIndex = 3
+		Label2.Text = "Lưu ý: Không được chỉnh sửa bất cứ file nào do phần mềm tạo ra"
+		' 
 		' MainDialog
 		' 
 		AutoScaleDimensions = New SizeF(7F, 15F)
 		AutoScaleMode = AutoScaleMode.Font
-		ClientSize = New Size(368, 235)
+		ClientSize = New Size(368, 241)
+		Controls.Add(Label2)
 		Controls.Add(btnOpenExam)
 		Controls.Add(btnCreateExam)
 		Controls.Add(Label1)
@@ -77,4 +88,5 @@ Partial Class MainDialog
 	Friend WithEvents Label1 As Label
 	Friend WithEvents btnCreateExam As Button
 	Friend WithEvents btnOpenExam As Button
+	Friend WithEvents Label2 As Label
 End Class

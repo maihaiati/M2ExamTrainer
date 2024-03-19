@@ -1,4 +1,6 @@
-﻿Imports System.IO ' TODO: Code phần xử lý load câu hỏi có chứa tag ảnh
+﻿Imports System.IO
+Imports System.Numerics
+Imports System.Security.Cryptography
 Public Class EditExamDialog
 	' Các biến liên quan đến đường dẫn file
 	Public createExam As Boolean
@@ -14,7 +16,18 @@ Public Class EditExamDialog
 	Private splitQues = New String() {} ' Mảng chứa các thành phần của câu hỏi đang làm việc
 	Private enableCommit As Boolean ' Biến lưu trữ trạng thái cho phép commit dữ liệu vào mảng hay không
 
-	Private Sub saveData()
+	Public Function GetFileHash(filePath As String) As String ' Hàm hash file
+		Dim hashValue As String = ""
+		Using hashAlgorithm As HashAlgorithm = SHA256.Create()
+			Using fileStream As FileStream = File.OpenRead(filePath)
+				Dim hashBytes As Byte() = hashAlgorithm.ComputeHash(fileStream)
+				hashValue = BitConverter.ToString(hashBytes).Replace("-", "").ToLower()
+			End Using
+		End Using
+		Return hashValue
+	End Function
+
+	Private Sub saveData() ' Hàm lưu dữ liệu vào file
 		' Mở tệp để ghi dữ liệu
 		Using quesWriter As New StreamWriter(quesPath)
 			For i = 0 To quesList.Length - 1
@@ -37,7 +50,7 @@ Public Class EditExamDialog
 		End Using
 	End Sub
 
-	Private Sub commitToQues(quesIndex As Integer, index As Integer, data As String)
+	Private Sub commitToQues(quesIndex As Integer, index As Integer, data As String) ' Hàm lưu dữ liệu vào mảng quesList
 		Select Case index
 			Case 0
 				quesList(quesIndex) = data & "~" & Split(quesList(quesIndex), "~"c)(1) & "~" & Split(quesList(quesIndex), "~"c)(2) & "~" & Split(quesList(quesIndex), "~"c)(3) & "~" & Split(quesList(quesIndex), "~"c)(4)
@@ -52,11 +65,11 @@ Public Class EditExamDialog
 		End Select
 	End Sub
 
-	Private Sub commitToAnswer(quesIndex As Integer, answer As Integer)
+	Private Sub commitToAnswer(quesIndex As Integer, answer As Integer) ' Hàm lưu dữ liệu vào mảng answerList
 		answerList(quesIndex) = answer
 	End Sub
 
-	Private Sub addQues(question As String)
+	Private Sub addQues(question As String) ' Hàm tạo câu hỏi
 		' Thêm một phần tử mới vào mảng
 		If quesList IsNot Nothing Then
 			' Nếu mảng đã tồn tại, thêm phần tử mới vào cuối mảng và duy trì dữ liệu hiện có
@@ -69,7 +82,7 @@ Public Class EditExamDialog
 		quesList(quesList.Length - 1) = question
 	End Sub
 
-	Private Sub addAnswer(answer As String)
+	Private Sub addAnswer(answer As String) ' Hàm tạo đáp án
 		If answerList IsNot Nothing Then
 			ReDim Preserve answerList(answerList.Length)
 		Else
@@ -78,7 +91,7 @@ Public Class EditExamDialog
 		answerList(answerList.Length - 1) = answer
 	End Sub
 
-	Private Sub removeQues(index As Integer)
+	Private Sub removeQues(index As Integer) ' Hàm xoá câu hỏi
 		If index >= 0 AndAlso index < quesList.Length Then
 			Dim tempArray(quesList.Length - 2) As String
 			Array.Copy(quesList, 0, tempArray, 0, index)
@@ -87,7 +100,7 @@ Public Class EditExamDialog
 		End If
 	End Sub
 
-	Private Sub removeAnswer(index As Integer)
+	Private Sub removeAnswer(index As Integer) ' Hàm xoá đáp án
 		If index >= 0 AndAlso index < answerList.Length Then
 			Dim tempArray(answerList.Length - 2) As String
 			Array.Copy(answerList, 0, tempArray, 0, index)
@@ -104,37 +117,21 @@ Public Class EditExamDialog
 		txtD.Clear()
 	End Sub
 
-	Private Function multiToLine(ques As String)
+	Private Function multiToLine(ques As String) ' Hảm chuyển từ multi line format thành one line format
 		Return ques.Replace("<", "&lt;").Replace(">", "&gt;").Replace(vbCrLf, "<br>").Replace(" ", "&nbsp;").Replace(vbTab, "&nbsp;&nbsp;&nbsp;&nbsp;")
 	End Function
 
-	Private Function lineToMulti(ques As String)
+	Private Function lineToMulti(ques As String) ' Hàm chuyển từ one line format thành multi line format
 		Return ques.Replace("&lt;", "<").Replace("&gt;", ">").Replace("<br>", vbCrLf).Replace("&nbsp;", " ").Replace("&nbsp;&nbsp;&nbsp;&nbsp;", vbTab)
 	End Function
 
-	Private Sub loadQues(quesNum As Integer)
+	Private Sub loadQues(quesNum As Integer) ' Hàm load câu hỏi ra màn hình
 		If chkAutoSave.Checked Then
 			saveData()
 		End If
 
 		lblQues.Text = "Câu hỏi " & quesNum + 1
 		quesIndex = quesNum
-		enableCommit = True
-
-		'If quesList.Length <= 0 Then
-		'previousQues.Enabled = False
-		'nextQues.Enabled = False
-		'cbbQues.Enabled = False
-		'createQues.Enabled = False
-		'delQues.Enabled = False
-		'radioA.Enabled = False
-		'radioB.Enabled = False
-		'radioC.Enabled = False
-		'radioD.Enabled = False
-		'splitQues = {"", "", "", "", ""}
-		'Debug.WriteLine("Case 1: {0}", splitQues.Length)
-		'Return
-		'End If
 
 		If numOfQues = 0 Then
 			delQues.Enabled = False
@@ -158,7 +155,28 @@ Public Class EditExamDialog
 		End If
 
 		splitQues = Split(quesList(quesNum), "~"c)
-		txtQues.Text = lineToMulti(splitQues(0))
+		If quesList(quesNum).IndexOf("<img src=") <> -1 Then
+			Dim imagePath As String
+			Dim ques As String
+
+			If splitQues(0).IndexOf("<br>") <> -1 Then
+				Try
+					ques = splitQues(0).Substring(splitQues(0).IndexOf("<br>") + 4)
+					txtQues.Text = lineToMulti(ques)
+					imagePath = Path.Combine(examPath, splitQues(0).Substring(splitQues(0).IndexOf("'") + 1, splitQues(0).IndexOf(">") - splitQues(0).IndexOf("'") - 2))
+					picPreview.Image = Image.FromFile(imagePath)
+				Catch ex As Exception
+					MsgBox(ex.Message, MessageBoxIcon.Error, "M2ExamCreator")
+				End Try
+			Else
+				MsgBox("Cấu trúc câu hỏi bị lỗi!", MessageBoxIcon.Error, "M2ExamCreator")
+				txtQues.Text = lineToMulti(splitQues(0))
+			End If
+		Else
+			picPreview.Image = Nothing
+			txtQues.Text = lineToMulti(splitQues(0))
+		End If
+
 		For i = 1 To splitQues.Length - 1
 			Select Case i
 				Case 1
@@ -190,10 +208,11 @@ Public Class EditExamDialog
 				radioA.Checked = True
 		End Select
 
+		enableCommit = True
 		cbbQues.SelectedIndex = quesNum
 	End Sub
 
-	Private Sub EditExamDialog_Load(sender As Object, e As EventArgs) Handles Me.Load
+	Private Sub EditExamDialog_Load(sender As Object, e As EventArgs) Handles Me.Load ' Khởi tạo khi form được khởi động
 		If createExam Then
 			Dim quesFile As StreamWriter = File.CreateText(quesPath)
 			Dim answerFile As StreamWriter = File.CreateText(answerPath)
@@ -231,8 +250,8 @@ Public Class EditExamDialog
 				answerFile.Close()
 
 				If quesList.Length <> answerList.Length Then
-					MsgBox("Lỗi đề thi: File câu hỏi và đáp án không trùng khớp!")
-					Close()
+					MsgBox("Lỗi đề thi: File câu hỏi và đáp án không trùng khớp!", MessageBoxIcon.Error, "M2ExamCreator")
+					End
 				End If
 
 				If quesList.Length = 0 Then
@@ -249,8 +268,8 @@ Public Class EditExamDialog
 				enableCommit = False
 				loadQues(numOfQues)
 			Else
-				MsgBox("Không tìm thấy đề thi trong thư mục này. Vui lòng tạo đề thi mới!")
-				Close()
+				MsgBox("Không tìm thấy đề thi trong thư mục này. Vui lòng tạo đề thi mới!", MessageBoxIcon.Error, "M2ExamCreator")
+				End
 			End If
 
 			enableCommit = True
@@ -263,7 +282,17 @@ Public Class EditExamDialog
 	End Sub
 
 	Private Sub btnDelImage_Click(sender As Object, e As EventArgs) Handles btnDelImage.Click
-		picPreview.Image = Nothing
+		If Not picPreview.Image Is Nothing Then
+			Try
+				splitQues(0) = splitQues(0).Substring(splitQues(0).IndexOf("<br>") + 4)
+				commitToQues(quesIndex, 0, multiToLine(splitQues(0)))
+			Catch ex As Exception
+				MsgBox(ex.Message, MessageBoxIcon.Error, "M2ExamCreator")
+			End Try
+			picPreview.Image = Nothing
+		Else
+			MsgBox("Câu hỏi này không có ảnh để bỏ chèn!", MessageBoxIcon.Warning, "M2ExamCreator")
+		End If
 	End Sub
 
 	Private Sub btnBrowImg_Click(sender As Object, e As EventArgs) Handles btnBrowImg.Click
@@ -284,22 +313,30 @@ Public Class EditExamDialog
 		' Mở hộp thoại và kiểm tra kết quả
 		If fileDialog.ShowDialog() = DialogResult.OK Then
 			' Xử lý các tệp tin đã chọn ở đây
-			picPreview.Image = Image.FromFile(fileDialog.FileName)
+			Try
+				If Not Directory.Exists(assetsPath) Then
+					Directory.CreateDirectory(assetsPath)
+				End If
+
+				If Not File.Exists(Path.Combine(assetsPath, Path.GetFileName(fileDialog.FileName))) Then
+					' Sao chép tập tin từ đường dẫn nguồn đến thư mục đích
+					File.Copy(fileDialog.FileName, Path.Combine(assetsPath, Path.GetFileName(fileDialog.FileName)), False)
+				Else
+					If GetFileHash(fileDialog.FileName) <> GetFileHash(Path.Combine(assetsPath, Path.GetFileName(fileDialog.FileName))) Then
+						MessageBox.Show("Có một file ảnh khác trong đề đã trùng tên với file mà bạn chọn, vui lòng đổi tên file để chèn", "M2ExamCreator", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+						Return
+					End If
+				End If
+
+				splitQues(0) = "<img src='.\assets\" & Path.GetFileName(fileDialog.FileName) & "'><br>" & txtQues.Text
+				commitToQues(quesIndex, 0, "<img src='.\assets\" & Path.GetFileName(fileDialog.FileName) & "'><br>" & multiToLine(splitQues(0)))
+				picPreview.Image = Image.FromFile(Path.Combine(assetsPath, Path.GetFileName(fileDialog.FileName)))
+			Catch ex As Exception
+				MsgBox(ex.Message)
+			End Try
 		End If
 
-		Try
-			If Not Directory.Exists(assetsPath) Then
-				Directory.CreateDirectory(assetsPath)
-			End If
 
-			' Sao chép tập tin từ đường dẫn nguồn đến thư mục đích
-			File.Copy(fileDialog.FileName, Path.Combine(assetsPath, Path.GetFileName(fileDialog.FileName)), False)
-
-			splitQues(0) = txtQues.Text
-			commitToQues(quesIndex, 0, "<img src='.\assets\" & Path.GetFileName(fileDialog.FileName) & "'><br>" & multiToLine(splitQues(0)))
-		Catch ex As Exception
-			MsgBox(ex.Message)
-		End Try
 	End Sub
 
 	Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
@@ -338,7 +375,7 @@ Public Class EditExamDialog
 
 	Private Sub delQues_Click(sender As Object, e As EventArgs) Handles delQues.Click
 		If numOfQues = 0 Then
-			MsgBox("Không thể xoá tất cả câu hỏi trong đề")
+			MsgBox("Không thể xoá tất cả câu hỏi trong đề", MessageBoxIcon.Warning, "M2ExamCreator")
 			delQues.Enabled = False
 			Return
 		End If
@@ -452,7 +489,7 @@ Public Class EditExamDialog
 	Private Sub radioA_CheckedChanged(sender As Object, e As EventArgs) Handles radioA.CheckedChanged
 		If radioA.Checked Then
 			If txtA.Text = "" And enableCommit Then
-				MsgBox("Không thể chọn đáp án trống. Vui lòng nhập đáp án vào hộp đáp án rồi chọn lại!")
+				MsgBox("Không thể chọn đáp án trống. Vui lòng nhập đáp án vào hộp đáp án rồi chọn lại!", MessageBoxIcon.Information, "M2ExamCreator")
 				radioA.Checked = False
 			End If
 			If enableCommit Then
@@ -464,7 +501,7 @@ Public Class EditExamDialog
 	Private Sub radioB_CheckedChanged(sender As Object, e As EventArgs) Handles radioB.CheckedChanged
 		If radioB.Checked Then
 			If txtB.Text = "" Then
-				MsgBox("Không thể chọn đáp án trống. Vui lòng nhập đáp án vào hộp đáp án rồi chọn lại!")
+				MsgBox("Không thể chọn đáp án trống. Vui lòng nhập đáp án vào hộp đáp án rồi chọn lại!", MessageBoxIcon.Information, "M2ExamCreator")
 				radioB.Checked = False
 			End If
 			If enableCommit Then
@@ -476,7 +513,7 @@ Public Class EditExamDialog
 	Private Sub radioC_CheckedChanged(sender As Object, e As EventArgs) Handles radioC.CheckedChanged
 		If radioC.Checked Then
 			If txtC.Text = "" Then
-				MsgBox("Không thể chọn đáp án trống. Vui lòng nhập đáp án vào hộp đáp án rồi chọn lại!")
+				MsgBox("Không thể chọn đáp án trống. Vui lòng nhập đáp án vào hộp đáp án rồi chọn lại!", MessageBoxIcon.Information, "M2ExamCreator")
 				radioC.Checked = False
 			End If
 			If enableCommit Then
@@ -488,7 +525,7 @@ Public Class EditExamDialog
 	Private Sub radioD_CheckedChanged(sender As Object, e As EventArgs) Handles radioD.CheckedChanged
 		If radioD.Checked Then
 			If txtD.Text = "" Then
-				MsgBox("Không thể chọn đáp án trống. Vui lòng nhập đáp án vào hộp đáp án rồi chọn lại!")
+				MsgBox("Không thể chọn đáp án trống. Vui lòng nhập đáp án vào hộp đáp án rồi chọn lại!", MessageBoxIcon.Information, "M2ExamCreator")
 				radioD.Checked = False
 			End If
 			If enableCommit Then
