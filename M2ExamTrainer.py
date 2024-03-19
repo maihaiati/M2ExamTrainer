@@ -334,7 +334,7 @@ class Ui_M2ExamTrainer(object):
             self.chooseQues.setCurrentIndex(numOfQues)
         self.screen.clear()
         self.screen.setHtml("Câu " + str(numOfQues + 1) + "/" + str(len(questions)) + ": ")
-        self.screen.append(str(questions[numOfQues][0]))
+        self.screen.append(str(questions[numOfQues][0]).replace("&nbsp;", " "))
         self.screen.append('')
         for i in range(1, len(questions[numOfQues])):
             self.screen.append('')
