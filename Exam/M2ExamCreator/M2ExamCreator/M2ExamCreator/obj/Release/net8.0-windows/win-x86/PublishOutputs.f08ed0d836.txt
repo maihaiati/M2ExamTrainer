@@ -1,0 +1,7 @@
+D:\TaiLieuHocTap\M2Tool\M2ExamTrainer\Exam\M2ExamCreator\M2ExamCreator\M2ExamCreator\bin\Release\net8.0-windows\publish\win-x86\M2ExamCreator.pdb
+D:\TaiLieuHocTap\M2Tool\M2ExamTrainer\Exam\M2ExamCreator\M2ExamCreator\M2ExamCreator\bin\Release\net8.0-windows\publish\win-x86\D3DCompiler_47_cor3.dll
+D:\TaiLieuHocTap\M2Tool\M2ExamTrainer\Exam\M2ExamCreator\M2ExamCreator\M2ExamCreator\bin\Release\net8.0-windows\publish\win-x86\PenImc_cor3.dll
+D:\TaiLieuHocTap\M2Tool\M2ExamTrainer\Exam\M2ExamCreator\M2ExamCreator\M2ExamCreator\bin\Release\net8.0-windows\publish\win-x86\PresentationNative_cor3.dll
+D:\TaiLieuHocTap\M2Tool\M2ExamTrainer\Exam\M2ExamCreator\M2ExamCreator\M2ExamCreator\bin\Release\net8.0-windows\publish\win-x86\vcruntime140_cor3.dll
+D:\TaiLieuHocTap\M2Tool\M2ExamTrainer\Exam\M2ExamCreator\M2ExamCreator\M2ExamCreator\bin\Release\net8.0-windows\publish\win-x86\wpfgfx_cor3.dll
+D:\TaiLieuHocTap\M2Tool\M2ExamTrainer\Exam\M2ExamCreator\M2ExamCreator\M2ExamCreator\bin\Release\net8.0-windows\publish\win-x86\M2ExamCreator.exe

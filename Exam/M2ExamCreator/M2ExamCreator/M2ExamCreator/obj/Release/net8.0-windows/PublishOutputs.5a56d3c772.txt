@@ -1,0 +1,5 @@
+D:\TaiLieuHocTap\M2Tool\M2ExamTrainer\Exam\M2ExamCreator\M2ExamCreator\M2ExamCreator\bin\Release\net8.0-windows\publish\M2ExamCreator.exe
+D:\TaiLieuHocTap\M2Tool\M2ExamTrainer\Exam\M2ExamCreator\M2ExamCreator\M2ExamCreator\bin\Release\net8.0-windows\publish\M2ExamCreator.dll
+D:\TaiLieuHocTap\M2Tool\M2ExamTrainer\Exam\M2ExamCreator\M2ExamCreator\M2ExamCreator\bin\Release\net8.0-windows\publish\M2ExamCreator.deps.json
+D:\TaiLieuHocTap\M2Tool\M2ExamTrainer\Exam\M2ExamCreator\M2ExamCreator\M2ExamCreator\bin\Release\net8.0-windows\publish\M2ExamCreator.runtimeconfig.json
+D:\TaiLieuHocTap\M2Tool\M2ExamTrainer\Exam\M2ExamCreator\M2ExamCreator\M2ExamCreator\bin\Release\net8.0-windows\publish\M2ExamCreator.pdb

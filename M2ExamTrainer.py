@@ -14,6 +14,7 @@ from random import randint
 
 questions = []
 answers = []
+ansChoices = []
 choosed = []
 numOfQues = 0
 trueAnsCount = 0
@@ -39,9 +40,11 @@ try:
             questions.append(temp)
 
         choosed = questions.copy()
+        ansChoices = questions.copy()
 
         for i in range(0, len(choosed)):
             choosed[i] = False
+            ansChoices[i] = ""
 
     with open('answers.txt', 'r', encoding='utf-8') as file:
         lines = file.readlines()
@@ -338,13 +341,27 @@ class Ui_M2ExamTrainer(object):
         self.screen.append('')
         for i in range(1, len(questions[numOfQues])):
             self.screen.append('')
-            self.screen.append(chr(i + 64) + ": " + str(questions[numOfQues][i]).replace("&nbsp;", " "))
+
+            if choosed[numOfQues] and str(questions[numOfQues][i]) == str(questions[numOfQues][int(answers[numOfQues])]):  # Thực thi khi câu đã làm rồi và câu đang xét là kết quả đúng
+                # self.screen.append(chr(i + 64) + ": " + str(questions[numOfQues][i]).replace("&nbsp;", " ").replace("&lt;", "<").replace("&gt;", ">"))
+                self.screen.append("<p style='background-color:green;color:white;'>" + chr(i + 64) + ": " + (str(questions[numOfQues][i]).replace('<br>', '\n').replace('&nbsp;', ' ')) + "</p>")
+
+            elif choosed[numOfQues] and str(questions[numOfQues][i]) != str(questions[numOfQues][int(answers[numOfQues])]) and str(questions[numOfQues][i]) == ansChoices[numOfQues]:  # Thực thi khi câu đã làm rồi và câu đang xét là kết quả đã chọn và là kết quả sai
+                # self.screen.append(chr(i + 64) + ": " + str(questions[numOfQues][i]).replace("&nbsp;", " ").replace("&lt;", "<").replace("&gt;", ">"))
+                self.screen.append("<p style='background-color:red;color:white;'>" + chr(i + 64) + ": " + (str(questions[numOfQues][i]).replace('<br>', '\n').replace('&nbsp;', ' ')) + "</p>")
+
+            else:  # Thực thi khi câu chưa được làm hoặc không phải câu đúng và không phải câu người dùng chọn
+                # self.screen.append(chr(i + 64) + ": " + str(questions[numOfQues][i]).replace("&nbsp;", " ").replace("&lt;", "<").replace("&gt;", ">"))
+                self.screen.append(chr(i + 64) + ": " + str(questions[numOfQues][i]).replace('<br>', '\n').replace('&nbsp;', ' ').replace("&lt;", "<").replace("&gt;", ">"))
+            
             if i == 4: # Chương trình mới chỉ hỗ trợ 4 đáp án nên có nhiều đáp án hơn thì câu lệnh này sẽ ngăn chặn gán tiếp
                 break
-        if choosed[numOfQues]:
-            self.screen.append('')
-            self.screen.append('')
-            self.screen.append("Đáp án: " + questions[numOfQues][int(answers[numOfQues])])
+
+        # if choosed[numOfQues]:
+            # self.screen.append('')
+            # self.screen.append('')
+            # self.screen.append("Đáp án: " + str(questions[numOfQues][int(answers[numOfQues])]).replace('<br>', '\n').replace('&nbsp;', ' ').replace("&lt;", "<").replace("&gt;", ">"))
+            # self.screen.append("Đáp án: " + str(questions[numOfQues][int(answers[numOfQues])]).replace("&nbsp;", " ").replace("&lt;", "<").replace("&gt;", ">"))
 
     def comboBoxChangedQues(self, index):
         global numOfQues
@@ -363,6 +380,7 @@ class Ui_M2ExamTrainer(object):
         if not endExam:
             if not choosed[numOfQues]:
                 choosed[numOfQues] = True
+                ansChoices[numOfQues] = questions[numOfQues][1]
                 if answers[numOfQues] == '1':
                     trueAnsCount += 1
                     self.screen.append('')
@@ -370,7 +388,8 @@ class Ui_M2ExamTrainer(object):
                 else:
                     falseAnsCount += 1
                     self.screen.append('')
-                    self.screen.append("Đáp án đúng: " + questions[numOfQues][int(answers[numOfQues])])
+                    # self.screen.append("Đáp án đúng: " + questions[numOfQues][int(answers[numOfQues])].replace("&nbsp;", " ").replace("&lt;", "<").replace("&gt;", ">"))
+                    self.screen.append("Đáp án đúng: " + questions[numOfQues][int(answers[numOfQues])].replace('<br>', '\n').replace('&nbsp;', ' ').replace("&lt;", "<").replace("&gt;", ">"))
                 self.updateStatusScreen()
                 if trueAnsCount + falseAnsCount == len(questions):
                     self.scoreCal()
@@ -390,6 +409,7 @@ class Ui_M2ExamTrainer(object):
         if not endExam:
             if not choosed[numOfQues]:
                 choosed[numOfQues] = True
+                ansChoices[numOfQues] = questions[numOfQues][2]
                 if answers[numOfQues] == '2':
                     trueAnsCount += 1
                     self.screen.append('')
@@ -397,7 +417,8 @@ class Ui_M2ExamTrainer(object):
                 else:
                     falseAnsCount += 1
                     self.screen.append('')
-                    self.screen.append("Đáp án đúng: " + questions[numOfQues][int(answers[numOfQues])])
+                    # self.screen.append("Đáp án đúng: " + questions[numOfQues][int(answers[numOfQues])].replace("&nbsp;", " ").replace("&lt;", "<").replace("&gt;", ">"))
+                    self.screen.append("Đáp án đúng: " + questions[numOfQues][int(answers[numOfQues])].replace('<br>', '\n').replace('&nbsp;', ' ').replace("&lt;", "<").replace("&gt;", ">"))
                 self.updateStatusScreen()
                 if trueAnsCount + falseAnsCount == len(questions):
                     self.scoreCal()
@@ -417,6 +438,7 @@ class Ui_M2ExamTrainer(object):
         if not endExam:
             if not choosed[numOfQues]:
                 choosed[numOfQues] = True
+                ansChoices[numOfQues] = questions[numOfQues][3]
                 if answers[numOfQues] == '3':
                     trueAnsCount += 1
                     self.screen.append('')
@@ -424,7 +446,8 @@ class Ui_M2ExamTrainer(object):
                 else:
                     falseAnsCount += 1
                     self.screen.append('')
-                    self.screen.append("Đáp án đúng: " + questions[numOfQues][int(answers[numOfQues])])
+                    # self.screen.append("Đáp án đúng: " + questions[numOfQues][int(answers[numOfQues])].replace("&nbsp;", " ").replace("&lt;", "<").replace("&gt;", ">"))
+                    self.screen.append("Đáp án đúng: " + questions[numOfQues][int(answers[numOfQues])].replace('<br>', '\n').replace('&nbsp;', ' ').replace("&lt;", "<").replace("&gt;", ">"))
                 self.updateStatusScreen()
                 if trueAnsCount + falseAnsCount == len(questions):
                     self.scoreCal()
@@ -444,6 +467,7 @@ class Ui_M2ExamTrainer(object):
         if not endExam:
             if not choosed[numOfQues]:
                 choosed[numOfQues] = True
+                ansChoices[numOfQues] = questions[numOfQues][4]
                 if answers[numOfQues] == '4':
                     trueAnsCount += 1
                     self.screen.append('')
@@ -451,7 +475,8 @@ class Ui_M2ExamTrainer(object):
                 else:
                     falseAnsCount += 1
                     self.screen.append('')
-                    self.screen.append("Đáp án đúng: " + questions[numOfQues][int(answers[numOfQues])])
+                    # self.screen.append("Đáp án đúng: " + questions[numOfQues][int(answers[numOfQues])].replace("&nbsp;", " ").replace("&lt;", "<").replace("&gt;", ">"))
+                    self.screen.append("Đáp án đúng: " + questions[numOfQues][int(answers[numOfQues])].replace('<br>', '\n').replace('&nbsp;', ' ').replace("&lt;", "<").replace("&gt;", ">"))
                 self.updateStatusScreen()
                 if trueAnsCount + falseAnsCount == len(questions):
                     self.scoreCal()

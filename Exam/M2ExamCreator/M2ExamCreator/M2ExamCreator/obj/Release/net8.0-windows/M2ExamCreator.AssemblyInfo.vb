@@ -16,7 +16,7 @@ Imports System.Reflection
 <Assembly: System.Reflection.AssemblyCompanyAttribute("M2ExamCreator"),  _
  Assembly: System.Reflection.AssemblyConfigurationAttribute("Release"),  _
  Assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0"),  _
- Assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+69bd51ca987039661f5fb2e3f905c955658f25f5"),  _
+ Assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+efb01b14a7f97f3bb08e4c0a896631494b94ddc9"),  _
  Assembly: System.Reflection.AssemblyProductAttribute("M2ExamCreator"),  _
  Assembly: System.Reflection.AssemblyTitleAttribute("M2ExamCreator"),  _
  Assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0"),  _

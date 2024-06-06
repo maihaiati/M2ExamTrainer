@@ -6,7 +6,12 @@
     <StartupObject>M2ExamCreator.My.MyApplication</StartupObject>
     <UseWindowsForms>true</UseWindowsForms>
     <MyType>WindowsForms</MyType>
+    <ApplicationIcon>M2ExamCreator.ico</ApplicationIcon>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="M2ExamCreator.ico" />
+  </ItemGroup>
 
   <ItemGroup>
     <Import Include="System.Data" />
