@@ -110,6 +110,7 @@ Public Class EditExamDialog
 	End Sub
 
 	Private Sub clearAllScreen()
+		picPreview.Image = Nothing
 		txtQues.Clear()
 		txtA.Clear()
 		txtB.Clear()
@@ -533,5 +534,25 @@ Public Class EditExamDialog
 				commitToAnswer(quesIndex, 4)
 			End If
 		End If
+	End Sub
+
+	Private Sub btnAnsCopy_Click(sender As Object, e As EventArgs) Handles btnAnsCopy.Click
+		If quesIndex = 0 Then
+			MessageBox.Show("Không có câu hỏi trước!", "M2ExamCreator", MessageBoxButtons.OK, MessageBoxIcon.Error)
+			Return
+		End If
+		Dim splitQues = Split(quesList(quesIndex - 1), "~"c)
+		For i = 1 To splitQues.Length - 1
+			Select Case i
+				Case 1
+					txtA.Text = lineToMulti(splitQues(1))
+				Case 2
+					txtB.Text = lineToMulti(splitQues(2))
+				Case 3
+					txtC.Text = lineToMulti(splitQues(3))
+				Case 4
+					txtD.Text = lineToMulti(splitQues(4))
+			End Select
+		Next
 	End Sub
 End Class

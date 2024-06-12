@@ -36,7 +36,7 @@
               "RelativeDocumentMoniker": "M2ExamCreator\\EditExamDialog.vb",
               "ToolTip": "D:\\TaiLieuHocTap\\M2Tool\\M2ExamTrainer\\Exam\\M2ExamCreator\\M2ExamCreator\\M2ExamCreator\\EditExamDialog.vb",
               "RelativeToolTip": "M2ExamCreator\\EditExamDialog.vb",
-              "ViewState": "AQIAAAoBAAAAAAAAAAAowD8BAAAAAAAA",
+              "ViewState": "AQIAAH0AAAAAAAAAAAAYwIYAAAAVAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
               "WhenOpened": "2024-03-12T14:26:10.932Z",
               "EditorCaption": ""
@@ -44,13 +44,14 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "EditExamDialog.vb",
+              "Title": "EditExamDialog.vb [Design]",
               "DocumentMoniker": "D:\\TaiLieuHocTap\\M2Tool\\M2ExamTrainer\\Exam\\M2ExamCreator\\M2ExamCreator\\M2ExamCreator\\EditExamDialog.vb",
               "RelativeDocumentMoniker": "M2ExamCreator\\EditExamDialog.vb",
-              "ToolTip": "D:\\TaiLieuHocTap\\M2Tool\\M2ExamTrainer\\Exam\\M2ExamCreator\\M2ExamCreator\\M2ExamCreator\\EditExamDialog.vb",
-              "RelativeToolTip": "M2ExamCreator\\EditExamDialog.vb",
+              "ToolTip": "D:\\TaiLieuHocTap\\M2Tool\\M2ExamTrainer\\Exam\\M2ExamCreator\\M2ExamCreator\\M2ExamCreator\\EditExamDialog.vb [Design]",
+              "RelativeToolTip": "M2ExamCreator\\EditExamDialog.vb [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003361|",
-              "WhenOpened": "2024-03-12T14:18:09.923Z"
+              "WhenOpened": "2024-03-12T14:18:09.923Z",
+              "EditorCaption": " [Design]"
             },
             {
               "$type": "Document",

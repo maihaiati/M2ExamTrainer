@@ -48,6 +48,7 @@ Partial Class EditExamDialog
 		btnBrowImg = New Button()
 		picPreview = New PictureBox()
 		btnDelImage = New Button()
+		btnAnsCopy = New Button()
 		grpChooseAns.SuspendLayout()
 		CType(picPreview, ComponentModel.ISupportInitialize).BeginInit()
 		SuspendLayout()
@@ -201,7 +202,7 @@ Partial Class EditExamDialog
 		grpChooseAns.Controls.Add(radioD)
 		grpChooseAns.Controls.Add(radioB)
 		grpChooseAns.Controls.Add(radioA)
-		grpChooseAns.Location = New Point(358, 476)
+		grpChooseAns.Location = New Point(358, 455)
 		grpChooseAns.Name = "grpChooseAns"
 		grpChooseAns.Size = New Size(212, 151)
 		grpChooseAns.TabIndex = 15
@@ -316,11 +317,22 @@ Partial Class EditExamDialog
 		btnDelImage.Text = "Bỏ chèn ảnh"
 		btnDelImage.UseVisualStyleBackColor = True
 		' 
+		' btnAnsCopy
+		' 
+		btnAnsCopy.Font = New Font("Segoe UI", 12F, FontStyle.Bold)
+		btnAnsCopy.Location = New Point(358, 612)
+		btnAnsCopy.Name = "btnAnsCopy"
+		btnAnsCopy.Size = New Size(212, 45)
+		btnAnsCopy.TabIndex = 24
+		btnAnsCopy.Text = "Copy đáp án câu trước"
+		btnAnsCopy.UseVisualStyleBackColor = True
+		' 
 		' EditExamDialog
 		' 
 		AutoScaleDimensions = New SizeF(7F, 15F)
 		AutoScaleMode = AutoScaleMode.Font
 		ClientSize = New Size(1162, 669)
+		Controls.Add(btnAnsCopy)
 		Controls.Add(btnDelImage)
 		Controls.Add(picPreview)
 		Controls.Add(btnBrowImg)
@@ -381,4 +393,5 @@ Partial Class EditExamDialog
 	Friend WithEvents btnBrowImg As Button
 	Friend WithEvents picPreview As PictureBox
 	Friend WithEvents btnDelImage As Button
+	Friend WithEvents btnAnsCopy As Button
 End Class
