@@ -328,7 +328,8 @@ Public Class EditExamDialog
 					End If
 				End If
 
-				splitQues(0) = "<img src='.\assets\" & Path.GetFileName(fileDialog.FileName) & "'><br>" & txtQues.Text
+				' splitQues(0) = "<img src='.\assets\" & Path.GetFileName(fileDialog.FileName) & "'><br>" & txtQues.Text
+				splitQues(0) = txtQues.Text
 				commitToQues(quesIndex, 0, "<img src='.\assets\" & Path.GetFileName(fileDialog.FileName) & "'><br>" & multiToLine(splitQues(0)))
 				picPreview.Image = Image.FromFile(Path.Combine(assetsPath, Path.GetFileName(fileDialog.FileName)))
 			Catch ex As Exception
