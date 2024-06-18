@@ -11,11 +11,13 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtWidgets import QApplication, QMessageBox
 from random import randint
+import signal
+import sys
 
-questions = []
-answers = []
-ansChoices = []
-choosed = []
+questions = [] # Mảng câu hỏi
+answers = [] # Mảng đáp án
+ansChoices = [] # Mảng đáp án đã chọn
+choosed = [] # Mảng lưu giữ trạng thái đã làm hoặc chưa
 numOfQues = 0
 trueAnsCount = 0
 falseAnsCount = 0
@@ -33,18 +35,18 @@ try:
             # temp = line.replace('\n', '').replace('\\n', '\n').split('~')
             temp = line.replace('\n', '').split('~')
 
-            for i in range(0, len(temp)): # This for loop use for process the question in question list to remove all blank answers in question.
-                if temp[i] == '' or temp[i].isspace():
-                    temp.pop(i) # Remove element at position i
+            for i in range(0, len(temp)): # This for loop use for process the question in question list to change all blank answers in question to space.
+                if temp[i] == '':
+                    temp[i] = " " # Change to space
 
             questions.append(temp)
 
-        choosed = questions.copy()
-        ansChoices = questions.copy()
+    choosed = questions.copy()
+    ansChoices = questions.copy()
 
-        for i in range(0, len(choosed)):
-            choosed[i] = False
-            ansChoices[i] = ""
+    for i in range(0, len(choosed)):
+        choosed[i] = False
+        ansChoices[i] = ""
 
     with open('answers.txt', 'r', encoding='utf-8') as file:
         lines = file.readlines()
@@ -324,7 +326,6 @@ class Ui_M2ExamTrainer(object):
         averScore = ((10 / len(questions) * trueAnsCount) * 0.6 + self.diemKT.value() * 0.4) - self.diemCC.value()
         self.screen.clear()
         self.screen.append("Điểm hệ số 10: " + str(10 / len(questions) * trueAnsCount))
-        self.screen.append("Điểm hệ số 100: " + str(100 / len(questions) * trueAnsCount))
         self.screen.append("Điểm hệ số 4: " + str(4 / len(questions) * trueAnsCount))
         self.screen.append("Điểm học phần: " + str(averScore))
         self.screen.append('')
@@ -336,10 +337,23 @@ class Ui_M2ExamTrainer(object):
         if not setCurrentValueComboBox:
             self.chooseQues.setCurrentIndex(numOfQues)
         self.screen.clear()
+        self.btnA.setEnabled(False)
+        self.btnB.setEnabled(False)
+        self.btnC.setEnabled(False)
+        self.btnD.setEnabled(False)
         self.screen.setHtml("Câu " + str(numOfQues + 1) + "/" + str(len(questions)) + ": ")
         self.screen.append(str(questions[numOfQues][0]).replace("&nbsp;", " "))
         self.screen.append('')
         for i in range(1, len(questions[numOfQues])):
+            if i == 1 and str(questions[numOfQues][i]) != " ":
+                self.btnA.setEnabled(True)
+            elif i == 2 and str(questions[numOfQues][i]) != " ":
+                self.btnB.setEnabled(True)
+            elif i == 3 and str(questions[numOfQues][i]) != " ":
+                self.btnC.setEnabled(True)
+            elif i == 4 and str(questions[numOfQues][i]) != " ":
+                self.btnD.setEnabled(True)
+
             self.screen.append('')
 
             if choosed[numOfQues] and str(questions[numOfQues][i]) == str(questions[numOfQues][int(answers[numOfQues])]):  # Thực thi khi câu đã làm rồi và câu đang xét là kết quả đúng
@@ -370,120 +384,160 @@ class Ui_M2ExamTrainer(object):
         self.showQuestion(numOfQues, True)
 
     def chooseAnsA(self):
-        global numOfQues
-        global trueAnsCount
-        global falseAnsCount
-        global questions
-        global answers
-        global choosed
-        global endExam
-        if not endExam:
-            if not choosed[numOfQues]:
-                choosed[numOfQues] = True
-                ansChoices[numOfQues] = questions[numOfQues][1]
-                if answers[numOfQues] == '1':
-                    trueAnsCount += 1
-                    self.screen.append('')
-                    self.screen.append("Chính xác!")
+        try:
+            global numOfQues
+            global trueAnsCount
+            global falseAnsCount
+            global questions
+            global answers
+            global choosed
+            global endExam
+            if not endExam:
+                if not choosed[numOfQues]:
+                    choosed[numOfQues] = True
+                    ansChoices[numOfQues] = questions[numOfQues][1]
+                    if answers[numOfQues] == '1':
+                        trueAnsCount += 1
+                        self.screen.append('')
+                        self.screen.append("Chính xác!")
+                    else:
+                        falseAnsCount += 1
+                        self.screen.append('')
+                        # self.screen.append("Đáp án đúng: " + questions[numOfQues][int(answers[numOfQues])].replace("&nbsp;", " ").replace("&lt;", "<").replace("&gt;", ">"))
+                        self.screen.append("Đáp án đúng: " + questions[numOfQues][int(answers[numOfQues])].replace('<br>', '\n').replace('&nbsp;', ' ').replace("&lt;", "<").replace("&gt;", ">"))
+                    self.updateStatusScreen()
+                    if trueAnsCount + falseAnsCount == len(questions):
+                        self.scoreCal()
                 else:
-                    falseAnsCount += 1
-                    self.screen.append('')
-                    # self.screen.append("Đáp án đúng: " + questions[numOfQues][int(answers[numOfQues])].replace("&nbsp;", " ").replace("&lt;", "<").replace("&gt;", ">"))
-                    self.screen.append("Đáp án đúng: " + questions[numOfQues][int(answers[numOfQues])].replace('<br>', '\n').replace('&nbsp;', ' ').replace("&lt;", "<").replace("&gt;", ">"))
-                self.updateStatusScreen()
-                if trueAnsCount + falseAnsCount == len(questions):
-                    self.scoreCal()
+                    self.screen.append("Câu này bạn đã làm rồi. Vui lòng chuyển sang câu khác!")
             else:
-                self.screen.append("Câu này bạn đã làm rồi. Vui lòng chuyển sang câu khác!")
-        else:
-            self.scoreCal()
+                self.scoreCal()
+        except Exception as e:
+            with open('log.txt', 'a', encoding='utf-8') as file:
+                file.write("=====================================\n")
+                file.write("Exception at A\n")
+                file.write(type(e).__name__ + "\n")
+                file.write(str(e) + "\n")
+                file.write("=====================================\n\n")
+            self.screen.append("\nĐã xảy ra lỗi không xác định. Kiểm tra lỗi tại file log")
+            choosed[numOfQues] = False
 
     def chooseAnsB(self):
-        global numOfQues
-        global trueAnsCount
-        global falseAnsCount
-        global questions
-        global answers
-        global choosed
-        global endExam
-        if not endExam:
-            if not choosed[numOfQues]:
-                choosed[numOfQues] = True
-                ansChoices[numOfQues] = questions[numOfQues][2]
-                if answers[numOfQues] == '2':
-                    trueAnsCount += 1
-                    self.screen.append('')
-                    self.screen.append("Chính xác!")
+        try:
+            global numOfQues
+            global trueAnsCount
+            global falseAnsCount
+            global questions
+            global answers
+            global choosed
+            global endExam
+            if not endExam:
+                if not choosed[numOfQues]:
+                    choosed[numOfQues] = True
+                    ansChoices[numOfQues] = questions[numOfQues][2]
+                    if answers[numOfQues] == '2':
+                        trueAnsCount += 1
+                        self.screen.append('')
+                        self.screen.append("Chính xác!")
+                    else:
+                        falseAnsCount += 1
+                        self.screen.append('')
+                        # self.screen.append("Đáp án đúng: " + questions[numOfQues][int(answers[numOfQues])].replace("&nbsp;", " ").replace("&lt;", "<").replace("&gt;", ">"))
+                        self.screen.append("Đáp án đúng: " + questions[numOfQues][int(answers[numOfQues])].replace('<br>', '\n').replace('&nbsp;', ' ').replace("&lt;", "<").replace("&gt;", ">"))
+                    self.updateStatusScreen()
+                    if trueAnsCount + falseAnsCount == len(questions):
+                        self.scoreCal()
                 else:
-                    falseAnsCount += 1
-                    self.screen.append('')
-                    # self.screen.append("Đáp án đúng: " + questions[numOfQues][int(answers[numOfQues])].replace("&nbsp;", " ").replace("&lt;", "<").replace("&gt;", ">"))
-                    self.screen.append("Đáp án đúng: " + questions[numOfQues][int(answers[numOfQues])].replace('<br>', '\n').replace('&nbsp;', ' ').replace("&lt;", "<").replace("&gt;", ">"))
-                self.updateStatusScreen()
-                if trueAnsCount + falseAnsCount == len(questions):
-                    self.scoreCal()
+                    self.screen.append("Câu này bạn đã làm rồi. Vui lòng chuyển sang câu khác!")
             else:
-                self.screen.append("Câu này bạn đã làm rồi. Vui lòng chuyển sang câu khác!")
-        else:
-            self.scoreCal()
+                self.scoreCal()
+        except Exception as e:
+            with open('log.txt', 'a', encoding='utf-8') as file:
+                file.write("=====================================\n")
+                file.write("Exception at B\n")
+                file.write(type(e).__name__ + "\n")
+                file.write(str(e) + "\n")
+                file.write("=====================================\n\n")
+            self.screen.append("\nĐã xảy ra lỗi không xác định. Kiểm tra lỗi tại file log")
+            choosed[numOfQues] = False
 
     def chooseAnsC(self):
-        global numOfQues
-        global trueAnsCount
-        global falseAnsCount
-        global questions
-        global answers
-        global choosed
-        global endExam
-        if not endExam:
-            if not choosed[numOfQues]:
-                choosed[numOfQues] = True
-                ansChoices[numOfQues] = questions[numOfQues][3]
-                if answers[numOfQues] == '3':
-                    trueAnsCount += 1
-                    self.screen.append('')
-                    self.screen.append("Chính xác!")
+        try:
+            global numOfQues
+            global trueAnsCount
+            global falseAnsCount
+            global questions
+            global answers
+            global choosed
+            global endExam
+            if not endExam:
+                if not choosed[numOfQues]:
+                    choosed[numOfQues] = True
+                    ansChoices[numOfQues] = questions[numOfQues][3]
+                    if answers[numOfQues] == '3':
+                        trueAnsCount += 1
+                        self.screen.append('')
+                        self.screen.append("Chính xác!")
+                    else:
+                        falseAnsCount += 1
+                        self.screen.append('')
+                        # self.screen.append("Đáp án đúng: " + questions[numOfQues][int(answers[numOfQues])].replace("&nbsp;", " ").replace("&lt;", "<").replace("&gt;", ">"))
+                        self.screen.append("Đáp án đúng: " + questions[numOfQues][int(answers[numOfQues])].replace('<br>', '\n').replace('&nbsp;', ' ').replace("&lt;", "<").replace("&gt;", ">"))
+                    self.updateStatusScreen()
+                    if trueAnsCount + falseAnsCount == len(questions):
+                        self.scoreCal()
                 else:
-                    falseAnsCount += 1
-                    self.screen.append('')
-                    # self.screen.append("Đáp án đúng: " + questions[numOfQues][int(answers[numOfQues])].replace("&nbsp;", " ").replace("&lt;", "<").replace("&gt;", ">"))
-                    self.screen.append("Đáp án đúng: " + questions[numOfQues][int(answers[numOfQues])].replace('<br>', '\n').replace('&nbsp;', ' ').replace("&lt;", "<").replace("&gt;", ">"))
-                self.updateStatusScreen()
-                if trueAnsCount + falseAnsCount == len(questions):
-                    self.scoreCal()
+                    self.screen.append("Câu này bạn đã làm rồi. Vui lòng chuyển sang câu khác!")
             else:
-                self.screen.append("Câu này bạn đã làm rồi. Vui lòng chuyển sang câu khác!")
-        else:
-            self.scoreCal()
+                self.scoreCal()
+        except Exception as e:
+            with open('log.txt', 'a', encoding='utf-8') as file:
+                file.write("=====================================\n")
+                file.write("Exception at C\n")
+                file.write(type(e).__name__ + "\n")
+                file.write(str(e) + "\n")
+                file.write("=====================================\n\n")
+            self.screen.append("\nĐã xảy ra lỗi không xác định. Kiểm tra lỗi tại file log")
+            choosed[numOfQues] = False
 
     def chooseAnsD(self):
-        global numOfQues
-        global trueAnsCount
-        global falseAnsCount
-        global questions
-        global answers
-        global choosed
-        global endExam
-        if not endExam:
-            if not choosed[numOfQues]:
-                choosed[numOfQues] = True
-                ansChoices[numOfQues] = questions[numOfQues][4]
-                if answers[numOfQues] == '4':
-                    trueAnsCount += 1
-                    self.screen.append('')
-                    self.screen.append("Chính xác!")
+        try:
+            global numOfQues
+            global trueAnsCount
+            global falseAnsCount
+            global questions
+            global answers
+            global choosed
+            global endExam
+            if not endExam:
+                if not choosed[numOfQues]:
+                    choosed[numOfQues] = True
+                    ansChoices[numOfQues] = questions[numOfQues][4]
+                    if answers[numOfQues] == '4':
+                        trueAnsCount += 1
+                        self.screen.append('')
+                        self.screen.append("Chính xác!")
+                    else:
+                        falseAnsCount += 1
+                        self.screen.append('')
+                        # self.screen.append("Đáp án đúng: " + questions[numOfQues][int(answers[numOfQues])].replace("&nbsp;", " ").replace("&lt;", "<").replace("&gt;", ">"))
+                        self.screen.append("Đáp án đúng: " + questions[numOfQues][int(answers[numOfQues])].replace('<br>', '\n').replace('&nbsp;', ' ').replace("&lt;", "<").replace("&gt;", ">"))
+                    self.updateStatusScreen()
+                    if trueAnsCount + falseAnsCount == len(questions):
+                        self.scoreCal()
                 else:
-                    falseAnsCount += 1
-                    self.screen.append('')
-                    # self.screen.append("Đáp án đúng: " + questions[numOfQues][int(answers[numOfQues])].replace("&nbsp;", " ").replace("&lt;", "<").replace("&gt;", ">"))
-                    self.screen.append("Đáp án đúng: " + questions[numOfQues][int(answers[numOfQues])].replace('<br>', '\n').replace('&nbsp;', ' ').replace("&lt;", "<").replace("&gt;", ">"))
-                self.updateStatusScreen()
-                if trueAnsCount + falseAnsCount == len(questions):
-                    self.scoreCal()
+                    self.screen.append("Câu này bạn đã làm rồi. Vui lòng chuyển sang câu khác!")
             else:
-                self.screen.append("Câu này bạn đã làm rồi. Vui lòng chuyển sang câu khác!")
-        else:
-            self.scoreCal()
+                self.scoreCal()
+        except Exception as e:
+            with open('log.txt', 'a', encoding='utf-8') as file:
+                file.write("=====================================\n")
+                file.write("Exception at D\n")
+                file.write(type(e).__name__ + "\n")
+                file.write(str(e) + "\n")
+                file.write("=====================================\n\n")
+            self.screen.append("\nĐã xảy ra lỗi không xác định. Kiểm tra lỗi tại file log")
+            choosed[numOfQues] = False
         
     def nextQues(self):
         global numOfQues
