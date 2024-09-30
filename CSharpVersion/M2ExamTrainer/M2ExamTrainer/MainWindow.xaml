@@ -9,9 +9,9 @@
     <Window.Background>
         <ImageBrush ImageSource="/background.jpg"/>
     </Window.Background>
-    <Grid>
+    <Grid x:Name="MainGrid">
         <Label x:Name="label" Content="M2ExamTrainer" HorizontalAlignment="Center" Margin="0,98,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="72"/>
-        <Button x:Name="btnBrowse" Content="Mở đề thi" HorizontalAlignment="Center" Margin="0,370,0,0" VerticalAlignment="Top" Width="303" Height="72" Background="#FF21B8A5" BorderBrush="{x:Null}" Foreground="White" FontSize="36" FontWeight="Bold">
+        <Button x:Name="btnBrowse" Content="Mở đề thi" HorizontalAlignment="Center" Margin="0,370,0,0" VerticalAlignment="Top" Width="303" Height="72" Background="#FF21B8A5" BorderBrush="{x:Null}" Foreground="White" FontSize="36" FontWeight="Bold" Click="btnBrowse_Click">
             <Button.Template>
                 <ControlTemplate TargetType="Button">
                     <Border Background="{TemplateBinding Background}" 
