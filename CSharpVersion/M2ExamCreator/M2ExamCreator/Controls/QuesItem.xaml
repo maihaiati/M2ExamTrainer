@@ -1,0 +1,54 @@
+﻿<UserControl x:Class="M2ExamCreator.Controls.QuesItem"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:M2ExamCreator.Controls"
+             mc:Ignorable="d" d:DesignWidth="263" Height="36">
+
+    <UserControl.Resources>
+        <Image x:Key="btnDel" Source="/btnDel.png"/>
+    </UserControl.Resources>
+    
+    <Grid>
+        <Rectangle HorizontalAlignment="Left" Height="36" VerticalAlignment="Center" Width="216" RadiusX="5" RadiusY="5">
+            <Rectangle.Fill>
+                <SolidColorBrush Color="#FF5B5B5B" Opacity="0.5"/>
+            </Rectangle.Fill>
+        </Rectangle>
+        <Label x:Name="lblNumQues" Content="lblNumQues" Margin="10,5,173,8" Foreground="White" ScrollViewer.VerticalScrollBarVisibility="Disabled"/>
+
+        <Button x:Name="btnCreate" HorizontalAlignment="Left" VerticalAlignment="Center" Width="216" Height="36" BorderBrush="{x:Null}" Foreground="White" FontSize="36" FontWeight="Bold">
+            <Button.Background>
+                <SolidColorBrush Color="Black" Opacity="0"/>
+            </Button.Background>
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Background="{TemplateBinding Background}" 
+                        BorderBrush="{TemplateBinding BorderBrush}" 
+                        BorderThickness="{TemplateBinding BorderThickness}" 
+                        CornerRadius="5">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+
+        <Button x:Name="btnDel" HorizontalAlignment="Left" VerticalAlignment="Center" Width="43" Height="38" BorderBrush="{x:Null}" FontSize="36" FontWeight="Bold" Margin="221,0,0,0" Foreground="White">
+            <Button.Background>
+                <SolidColorBrush Color="#FF5B5B5B" Opacity="0.5"/>
+            </Button.Background>
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Background="{TemplateBinding Background}" 
+                BorderBrush="{TemplateBinding BorderBrush}" 
+                BorderThickness="{TemplateBinding BorderThickness}" 
+                CornerRadius="5">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+
+    </Grid>
+</UserControl>
