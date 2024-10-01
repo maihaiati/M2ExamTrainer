@@ -15,10 +15,10 @@
                 <SolidColorBrush Color="#FF292929" Opacity="0.6"/>
             </Rectangle.Fill>
         </Rectangle>
-        <Label x:Name="label" Content="Thông tin bài thi" HorizontalAlignment="Center" Margin="0,49,0,0" VerticalAlignment="Top" Foreground="White" FontSize="48"/>
+        <Label x:Name="label" Content="Thông tin bài thi" HorizontalAlignment="Center" Margin="0,49,0,0" VerticalAlignment="Top" Foreground="White" FontSize="48" FontWeight="Bold"/>
         <Label x:Name="lblAuthor" Content="Người tạo: " HorizontalAlignment="Left" Margin="64,221,0,0" VerticalAlignment="Top" Foreground="#FFC3C3C3" FontSize="24"/>
         <Label x:Name="lblNumOfQues" Content="Số lượng câu hỏi: " HorizontalAlignment="Left" Margin="64,307,0,0" VerticalAlignment="Top" Foreground="#FFC3C3C3" FontSize="24"/>
-        <Label x:Name="lblMinute" Content="Thời gian: " HorizontalAlignment="Left" Margin="64,394,0,0" VerticalAlignment="Top" Foreground="#FFC3C3C3" FontSize="24"/>
+        <Label x:Name="lblMinute" Content="Thời gian làm bài: " HorizontalAlignment="Left" Margin="64,394,0,0" VerticalAlignment="Top" Foreground="#FFC3C3C3" FontSize="24"/>
         <GridSplitter x:Name="gridSplitter" HorizontalAlignment="Center" Height="2" Margin="0,283,0,0" VerticalAlignment="Top" Width="1000">
             <GridSplitter.Background>
                 <SolidColorBrush Color="#FF505050" Opacity="0.689"/>
@@ -43,7 +43,7 @@
         <Label x:Name="lblMinute_Copy" Content="Chọn hình thức:" HorizontalAlignment="Left" Margin="64,483,0,0" VerticalAlignment="Top" Foreground="#FFC3C3C3" FontSize="24"/>
         <RadioButton x:Name="radioTrain" Content="Ôn tập" HorizontalAlignment="Left" Margin="480,495,0,0" VerticalAlignment="Top" Foreground="White" FontSize="22" VerticalContentAlignment="Center"/>
         <RadioButton x:Name="radioExam" Content="Thi thử" HorizontalAlignment="Left" Margin="729,495,0,0" VerticalAlignment="Top" Foreground="White" FontSize="22" VerticalContentAlignment="Center"/>
-        <Button x:Name="btnStart" Content="Bắt đầu thi" HorizontalAlignment="Center" Margin="0,644,0,0" VerticalAlignment="Top" Width="303" Height="72" Background="#FF21B8A5" BorderBrush="{x:Null}" Foreground="White" FontSize="36" FontWeight="Bold">
+        <Button x:Name="btnStart" Content="Bắt đầu làm" HorizontalAlignment="Center" Margin="0,644,0,0" VerticalAlignment="Top" Width="303" Height="72" Background="#FF21B8A5" BorderBrush="{x:Null}" Foreground="White" FontSize="30" FontWeight="Bold">
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Border Background="{TemplateBinding Background}" 
