@@ -1,4 +1,5 @@
-﻿using System;
+﻿using M2ExamTrainer.Classes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,7 @@ namespace M2ExamCreator.SubUserControls
     public partial class EditExam : UserControl
     {
         private string examFile;
+        private Exam exam;
 
         public EditExam(string examFile)
         {
@@ -32,6 +34,13 @@ namespace M2ExamCreator.SubUserControls
 
             MainWindow mainWindow = (MainWindow) Application.Current.MainWindow;
             mainWindow.Title = "M2ExamCreator - Edit exam";
+
+            loadData();
+        }
+
+        private void loadData()
+        {
+            exam = QuickAction.ReadExam(examFile);
         }
     }
 }

@@ -13,8 +13,9 @@
 
         <Grid Width="292" Background="#FF4A4A4A" Opacity="0.7" HorizontalAlignment="Left">
             <Rectangle HorizontalAlignment="Center" Height="0.5" VerticalAlignment="Top" Width="292" Fill="#FFA2A2A2" ScrollViewer.VerticalScrollBarVisibility="Disabled" Margin="0,48,0,0"/>
+            <Label x:Name="label" Content="Danh sách câu hỏi" Margin="10,50,0,0" VerticalAlignment="Top" Foreground="White"/>
             <ScrollViewer VerticalScrollBarVisibility="Disabled">
-                <StackPanel x:Name="panelQuesList" Margin="10,50,10,48" Height="690" Width="263"/>
+                <StackPanel x:Name="panelQuesList" Margin="10,50,10,48" Height="589" Width="263"/>
             </ScrollViewer>
         </Grid>
 
@@ -23,5 +24,20 @@
                 <StackPanel x:Name="panelEditQues" Margin="48,34,50,72" Height="710" Width="619"/>
             </ScrollViewer>
         </Grid>
+        <Button x:Name="btnNewQues" Content="Thêm câu hỏi" HorizontalAlignment="Left" VerticalAlignment="Top" Width="263" Height="36" BorderBrush="{x:Null}" Foreground="White" FontSize="16" FontWeight="Bold" Margin="7,710,0,0">
+            <Button.Background>
+                <SolidColorBrush Color="#FFB82174" Opacity="0.5"/>
+            </Button.Background>
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Background="{TemplateBinding Background}" 
+                        BorderBrush="{TemplateBinding BorderBrush}" 
+                        BorderThickness="{TemplateBinding BorderThickness}" 
+                        CornerRadius="5">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
     </Grid>
 </UserControl>

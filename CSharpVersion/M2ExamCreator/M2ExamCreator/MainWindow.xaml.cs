@@ -34,6 +34,14 @@ namespace M2ExamCreator
         private void btnBrowse_Click(object sender, RoutedEventArgs e)
         {
             string examFile = QuickAction.GetFile();
+
+            if (!String.IsNullOrWhiteSpace(examFile))
+            {
+                EditExam editExam = new EditExam(examFile);
+
+                MainGrid.Children.Clear();
+                MainGrid.Children.Add(editExam);
+            }
         }
     }
 }

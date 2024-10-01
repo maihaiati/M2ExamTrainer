@@ -108,7 +108,7 @@ namespace M2ExamTrainer.Classes
                 exam.WriteTo(stream);
                 var serializedData = stream.ToArray();
 
-                SaveStreamToFile(examDir + "\\" + fileName + ".exam", serializedData);
+                SaveStreamToFile(examFile, serializedData);
             }
             return true;
         }
@@ -125,7 +125,8 @@ namespace M2ExamTrainer.Classes
             }
             catch {
                 MessageBox.Show("Đề thi không hợp lệ!", "M2ExamTrainer", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                Application.Exit();
+                Environment.Exit(0);
+                return null;
             }
             return exam;
         }
