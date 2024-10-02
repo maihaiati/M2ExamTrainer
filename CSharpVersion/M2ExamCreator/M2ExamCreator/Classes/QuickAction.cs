@@ -100,7 +100,6 @@ namespace M2ExamTrainer.Classes
 
             exam.Name = name;
             exam.Author = author;
-            exam.NumOfQues = 0;
             exam.Minute = minute;
 
             using (var stream = new MemoryStream())

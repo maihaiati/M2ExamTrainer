@@ -36,7 +36,6 @@ namespace M2ExamCreator.SubUserControls
         private void btnCreate_Click(object sender, RoutedEventArgs e)
         {
             MainWindow mainWindow = (MainWindow) Application.Current.MainWindow;
-            
 
             string name = txtName.Text;
             string fileName = txtFileName.Text;

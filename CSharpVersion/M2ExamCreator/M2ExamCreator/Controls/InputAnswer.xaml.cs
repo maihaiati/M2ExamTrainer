@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using UserControl = System.Windows.Controls.UserControl;
 
 namespace M2ExamCreator.Controls
 {
@@ -20,9 +21,34 @@ namespace M2ExamCreator.Controls
     /// </summary>
     public partial class InputAnswer : UserControl
     {
-        public InputAnswer()
+        private int numQues;
+        private Answer answer;
+
+        public InputAnswer(int numQues, Answer answer)
         {
             InitializeComponent();
+
+            this.numQues = numQues;
+            this.answer = answer;
+            loadNumQues();
+        }
+
+        private void loadNumQues()
+        {
+            lblTitle.Content = "Đáp án " + numQues;
+        }
+
+        public int getNumQues() { 
+            return numQues;
+        }
+
+        public Answer getAnswer() { 
+            return answer; 
+        }
+
+        public void setNumQues(int numQues) { 
+            this.numQues = numQues;
+            loadNumQues();
         }
     }
 }

@@ -5,8 +5,82 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:M2ExamCreator.Controls"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="300" d:DesignWidth="619">
     <Grid>
-            
+        <Label x:Name="lblTitle" Content="Câu hỏi:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="22"/>
+        <RichTextBox x:Name="richQues" Margin="10,54,10,40" Background="#FF6B6B6B" Foreground="White">
+            <FlowDocument>
+                <Paragraph>
+                    <Run Text=""/>
+                </Paragraph>
+            </FlowDocument>
+            <RichTextBox.Template>
+                <ControlTemplate TargetType="{x:Type RichTextBox}">
+                    <Border Background="{TemplateBinding Background}" 
+                        BorderBrush="{TemplateBinding BorderBrush}" 
+                        BorderThickness="{TemplateBinding BorderThickness}" 
+                        CornerRadius="5">
+                        <ScrollViewer x:Name="PART_ContentHost" 
+                            HorizontalAlignment="Left" 
+                            VerticalAlignment="Top"/>
+                    </Border>
+                </ControlTemplate>
+            </RichTextBox.Template>
+        </RichTextBox>
+        <Button x:Name="btnBold" Content="B" HorizontalAlignment="Left" Margin="24,270,0,0" VerticalAlignment="Top" FontWeight="Bold" Width="20" Height="20" Foreground="White">
+            <Button.BorderBrush>
+                <SolidColorBrush Color="#FF707070" Opacity="1"/>
+            </Button.BorderBrush>
+            <Button.Background>
+                <SolidColorBrush Color="#FFDDDDDD" Opacity="0"/>
+            </Button.Background>
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Background="{TemplateBinding Background}" 
+                        BorderBrush="{TemplateBinding BorderBrush}" 
+                        BorderThickness="{TemplateBinding BorderThickness}" 
+                        CornerRadius="3">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button x:Name="btnItalic" Content="I" HorizontalAlignment="Left" Margin="54,270,0,0" VerticalAlignment="Top" Width="20" Height="20" Foreground="White" FontFamily="High Tower Text" FontStyle="Italic">
+            <Button.BorderBrush>
+                <SolidColorBrush Color="#FF707070" Opacity="1"/>
+            </Button.BorderBrush>
+            <Button.Background>
+                <SolidColorBrush Color="#FFDDDDDD" Opacity="0"/>
+            </Button.Background>
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Background="{TemplateBinding Background}" 
+                        BorderBrush="{TemplateBinding BorderBrush}" 
+                        BorderThickness="{TemplateBinding BorderThickness}" 
+                        CornerRadius="3">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button x:Name="btnUnderline" Content="U̲" HorizontalAlignment="Left" Margin="85,270,0,0" VerticalAlignment="Top" Width="20" Height="20" Foreground="White">
+            <Button.BorderBrush>
+                <SolidColorBrush Color="#FF707070" Opacity="1"/>
+            </Button.BorderBrush>
+            <Button.Background>
+                <SolidColorBrush Color="#FFDDDDDD" Opacity="0"/>
+            </Button.Background>
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Background="{TemplateBinding Background}" 
+                        BorderBrush="{TemplateBinding BorderBrush}" 
+                        BorderThickness="{TemplateBinding BorderThickness}" 
+                        CornerRadius="3">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+
     </Grid>
 </UserControl>

@@ -14,19 +14,34 @@
         <Grid Width="292" Background="#FF4A4A4A" Opacity="0.7" HorizontalAlignment="Left">
             <Rectangle HorizontalAlignment="Center" Height="0.5" VerticalAlignment="Top" Width="292" Fill="#FFA2A2A2" ScrollViewer.VerticalScrollBarVisibility="Disabled" Margin="0,48,0,0"/>
             <Label x:Name="label" Content="Danh sách câu hỏi" Margin="10,50,0,0" VerticalAlignment="Top" Foreground="White"/>
-            <ScrollViewer VerticalScrollBarVisibility="Disabled">
-                <StackPanel x:Name="panelQuesList" Margin="10,50,10,48" Height="589" Width="263"/>
+            <ScrollViewer x:Name="scrollQuesList" VerticalScrollBarVisibility="Hidden" CanContentScroll="True" Margin="0,81,0,20">
+                <StackPanel x:Name="panelQuesList" Margin="-2,-2.3,10,48" Height="618" Width="263"/>
             </ScrollViewer>
         </Grid>
 
         <Grid Width="708" Background="#FF4A4A4A" HorizontalAlignment="Right">
-            <ScrollViewer VerticalScrollBarVisibility="Disabled">
-                <StackPanel x:Name="panelEditQues" Margin="48,34,50,72" Height="710" Width="619"/>
+            <ScrollViewer x:Name="scrollEditQues" VerticalScrollBarVisibility="Hidden" CanContentScroll="True">
+                <StackPanel x:Name="panelEditQues" Margin="48,34,50,72" Height="660" Width="619" VerticalAlignment="Top"/>
             </ScrollViewer>
         </Grid>
-        <Button x:Name="btnNewQues" Content="Thêm câu hỏi" HorizontalAlignment="Left" VerticalAlignment="Top" Width="263" Height="36" BorderBrush="{x:Null}" Foreground="White" FontSize="16" FontWeight="Bold" Margin="7,710,0,0">
+        <Button x:Name="btnNewQues" Content="Thêm câu hỏi" HorizontalAlignment="Left" VerticalAlignment="Top" Width="263" Height="36" BorderBrush="{x:Null}" Foreground="White" FontSize="16" FontWeight="Bold" Margin="7,710,0,0" Click="btnNewQues_Click">
             <Button.Background>
                 <SolidColorBrush Color="#FFB82174" Opacity="0.5"/>
+            </Button.Background>
+            <Button.Template>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Background="{TemplateBinding Background}" 
+                        BorderBrush="{TemplateBinding BorderBrush}" 
+                        BorderThickness="{TemplateBinding BorderThickness}" 
+                        CornerRadius="5">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button x:Name="btnNewAnswer" Content="Thêm đáp án" HorizontalAlignment="Left" VerticalAlignment="Top" Width="263" Height="36" BorderBrush="{x:Null}" Foreground="White" FontSize="16" FontWeight="Bold" Margin="514,710,0,0" Click="btnNewAnswer_Click">
+            <Button.Background>
+                <SolidColorBrush Color="#FFB5B5B5" Opacity="0.5"/>
             </Button.Background>
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">

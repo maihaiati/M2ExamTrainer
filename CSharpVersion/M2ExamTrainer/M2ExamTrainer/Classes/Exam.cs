@@ -22,17 +22,16 @@ public static partial class ExamReflection {
   static ExamReflection() {
     byte[] descriptorData = global::System.Convert.FromBase64String(
         string.Concat(
-          "CgpFeGFtLnByb3RvImUKBEV4YW0SDAoEbmFtZRgBIAEoCRIOCgZhdXRob3IY",
-          "AiABKAkSEQoJbnVtT2ZRdWVzGAMgASgDEg4KBm1pbnV0ZRgEIAEoAxIcCglx",
-          "dWVzdGlvbnMYBSADKAsyCS5RdWVzdGlvbiJ3CghRdWVzdGlvbhIKCgJpZBgB",
-          "IAEoAxISCgp0cnVlQW5zd2VyGAIgASgDEg0KBWltYWdlGAMgASgJEg0KBWF1",
-          "ZGlvGAQgASgJEhMKC211bHRpQW5zd2VyGAUgASgIEhgKB2Fuc3dlcnMYBiAD",
-          "KAsyBy5BbnN3ZXIiJQoGQW5zd2VyEgoKAmlkGAEgASgDEg8KB2NvbnRlbnQY",
-          "AiABKAliBnByb3RvMw=="));
+          "CgpFeGFtLnByb3RvIlIKBEV4YW0SDAoEbmFtZRgBIAEoCRIOCgZhdXRob3IY",
+          "AiABKAkSDgoGbWludXRlGAMgASgDEhwKCXF1ZXN0aW9ucxgEIAMoCzIJLlF1",
+          "ZXN0aW9uIncKCFF1ZXN0aW9uEgoKAmlkGAEgASgDEhIKCnRydWVBbnN3ZXIY",
+          "AiABKAMSDQoFaW1hZ2UYAyABKAkSDQoFYXVkaW8YBCABKAkSEwoLbXVsdGlB",
+          "bnN3ZXIYBSABKAgSGAoHYW5zd2VycxgGIAMoCzIHLkFuc3dlciIlCgZBbnN3",
+          "ZXISCgoCaWQYASABKAMSDwoHY29udGVudBgCIAEoCWIGcHJvdG8z"));
     descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
         new pbr::FileDescriptor[] { },
         new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-          new pbr::GeneratedClrTypeInfo(typeof(global::Exam), global::Exam.Parser, new[]{ "Name", "Author", "NumOfQues", "Minute", "Questions" }, null, null, null, null),
+          new pbr::GeneratedClrTypeInfo(typeof(global::Exam), global::Exam.Parser, new[]{ "Name", "Author", "Minute", "Questions" }, null, null, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::Question), global::Question.Parser, new[]{ "Id", "TrueAnswer", "Image", "Audio", "MultiAnswer", "Answers" }, null, null, null, null),
           new pbr::GeneratedClrTypeInfo(typeof(global::Answer), global::Answer.Parser, new[]{ "Id", "Content" }, null, null, null, null)
         }));
@@ -78,7 +77,6 @@ public sealed partial class Exam : pb::IMessage<Exam>
   public Exam(Exam other) : this() {
     name_ = other.name_;
     author_ = other.author_;
-    numOfQues_ = other.numOfQues_;
     minute_ = other.minute_;
     questions_ = other.questions_.Clone();
     _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
@@ -114,20 +112,8 @@ public sealed partial class Exam : pb::IMessage<Exam>
     }
   }
 
-  /// <summary>Field number for the "numOfQues" field.</summary>
-  public const int NumOfQuesFieldNumber = 3;
-  private long numOfQues_;
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-  public long NumOfQues {
-    get { return numOfQues_; }
-    set {
-      numOfQues_ = value;
-    }
-  }
-
   /// <summary>Field number for the "minute" field.</summary>
-  public const int MinuteFieldNumber = 4;
+  public const int MinuteFieldNumber = 3;
   private long minute_;
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -139,9 +125,9 @@ public sealed partial class Exam : pb::IMessage<Exam>
   }
 
   /// <summary>Field number for the "questions" field.</summary>
-  public const int QuestionsFieldNumber = 5;
+  public const int QuestionsFieldNumber = 4;
   private static readonly pb::FieldCodec<global::Question> _repeated_questions_codec
-      = pb::FieldCodec.ForMessage(42, global::Question.Parser);
+      = pb::FieldCodec.ForMessage(34, global::Question.Parser);
   private readonly pbc::RepeatedField<global::Question> questions_ = new pbc::RepeatedField<global::Question>();
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -166,7 +152,6 @@ public sealed partial class Exam : pb::IMessage<Exam>
     }
     if (Name != other.Name) return false;
     if (Author != other.Author) return false;
-    if (NumOfQues != other.NumOfQues) return false;
     if (Minute != other.Minute) return false;
     if(!questions_.Equals(other.questions_)) return false;
     return Equals(_unknownFields, other._unknownFields);
@@ -178,7 +163,6 @@ public sealed partial class Exam : pb::IMessage<Exam>
     int hash = 1;
     if (Name.Length != 0) hash ^= Name.GetHashCode();
     if (Author.Length != 0) hash ^= Author.GetHashCode();
-    if (NumOfQues != 0L) hash ^= NumOfQues.GetHashCode();
     if (Minute != 0L) hash ^= Minute.GetHashCode();
     hash ^= questions_.GetHashCode();
     if (_unknownFields != null) {
@@ -207,12 +191,8 @@ public sealed partial class Exam : pb::IMessage<Exam>
       output.WriteRawTag(18);
       output.WriteString(Author);
     }
-    if (NumOfQues != 0L) {
-      output.WriteRawTag(24);
-      output.WriteInt64(NumOfQues);
-    }
     if (Minute != 0L) {
-      output.WriteRawTag(32);
+      output.WriteRawTag(24);
       output.WriteInt64(Minute);
     }
     questions_.WriteTo(output, _repeated_questions_codec);
@@ -234,12 +214,8 @@ public sealed partial class Exam : pb::IMessage<Exam>
       output.WriteRawTag(18);
       output.WriteString(Author);
     }
-    if (NumOfQues != 0L) {
-      output.WriteRawTag(24);
-      output.WriteInt64(NumOfQues);
-    }
     if (Minute != 0L) {
-      output.WriteRawTag(32);
+      output.WriteRawTag(24);
       output.WriteInt64(Minute);
     }
     questions_.WriteTo(ref output, _repeated_questions_codec);
@@ -258,9 +234,6 @@ public sealed partial class Exam : pb::IMessage<Exam>
     }
     if (Author.Length != 0) {
       size += 1 + pb::CodedOutputStream.ComputeStringSize(Author);
-    }
-    if (NumOfQues != 0L) {
-      size += 1 + pb::CodedOutputStream.ComputeInt64Size(NumOfQues);
     }
     if (Minute != 0L) {
       size += 1 + pb::CodedOutputStream.ComputeInt64Size(Minute);
@@ -283,9 +256,6 @@ public sealed partial class Exam : pb::IMessage<Exam>
     }
     if (other.Author.Length != 0) {
       Author = other.Author;
-    }
-    if (other.NumOfQues != 0L) {
-      NumOfQues = other.NumOfQues;
     }
     if (other.Minute != 0L) {
       Minute = other.Minute;
@@ -315,14 +285,10 @@ public sealed partial class Exam : pb::IMessage<Exam>
           break;
         }
         case 24: {
-          NumOfQues = input.ReadInt64();
-          break;
-        }
-        case 32: {
           Minute = input.ReadInt64();
           break;
         }
-        case 42: {
+        case 34: {
           questions_.AddEntriesFrom(input, _repeated_questions_codec);
           break;
         }
@@ -350,14 +316,10 @@ public sealed partial class Exam : pb::IMessage<Exam>
           break;
         }
         case 24: {
-          NumOfQues = input.ReadInt64();
-          break;
-        }
-        case 32: {
           Minute = input.ReadInt64();
           break;
         }
-        case 42: {
+        case 34: {
           questions_.AddEntriesFrom(ref input, _repeated_questions_codec);
           break;
         }

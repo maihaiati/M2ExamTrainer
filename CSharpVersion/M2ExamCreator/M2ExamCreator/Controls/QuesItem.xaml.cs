@@ -22,17 +22,59 @@ namespace M2ExamCreator.Controls
     public partial class QuesItem : UserControl
     {
         private int numQues;
+        private Question question;
 
-        public QuesItem(int numQues)
+        public event EventHandler QuesItemClick;
+        public event EventHandler QuesItemDelete;
+
+        protected virtual void OnQuesItemClick()
+        {
+            if (QuesItemClick != null)
+            {
+                QuesItemClick(this, EventArgs.Empty);
+            }
+        }
+
+        protected virtual void OnQuesItemDelete()
+        {
+            if (QuesItemDelete != null)
+            {
+                QuesItemDelete(this, EventArgs.Empty);
+            }
+        }
+
+        public QuesItem(int numQues, Question question)
         {
             InitializeComponent();
 
             this.numQues = numQues;
-            btnDel.Content = FindResource("btnDel");
+            this.question = question;
+
+            lblNumQues.Content = "Câu " + numQues;
+
+            btnDel.Content = FindResource("ButtonDel");
         }
 
-        public int getNumQues() { return numQues; }
+        public int getNumQues() { 
+            return numQues;
+        }
 
-        public void setNumQues(int numQues) { this.numQues = numQues; }
+        public void setNumQues(int numQues) { 
+            this.numQues = numQues;
+        }
+
+        public Question getQuestion() { 
+            return question;
+        }
+
+        private void btnCreate_Click(object sender, RoutedEventArgs e)
+        {
+            OnQuesItemClick();
+        }
+
+        private void btnDel_Click(object sender, RoutedEventArgs e)
+        {
+            OnQuesItemDelete();
+        }
     }
 }

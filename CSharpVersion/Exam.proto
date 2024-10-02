@@ -4,9 +4,8 @@ syntax = "proto3";
 message Exam {
     string name = 1;
     string author = 2;
-    int64 numOfQues = 3;
-    int64 minute = 4;
-    repeated Question questions = 5;
+    int64 minute = 3;
+    repeated Question questions = 4;
 }
 
 message Question {

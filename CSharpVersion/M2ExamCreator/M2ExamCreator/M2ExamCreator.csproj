@@ -11,11 +11,13 @@
 
   <ItemGroup>
     <None Remove="background.jpg" />
+    <None Remove="Controls\btnDel.png" />
     <None Remove="SubUserControls\background.jpg" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="background.jpg" />
+    <Resource Include="Controls\btndel.png" />
     <Resource Include="SubUserControls\background.jpg" />
   </ItemGroup>
 
