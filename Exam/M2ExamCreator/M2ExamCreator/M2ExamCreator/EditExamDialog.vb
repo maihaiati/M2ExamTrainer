@@ -119,11 +119,11 @@ Public Class EditExamDialog
 	End Sub
 
 	Private Function multiToLine(ques As String) ' Hảm chuyển từ multi line format thành one line format
-		Return ques.Replace("<", "&lt;").Replace(">", "&gt;").Replace(vbCrLf, "<br>").Replace(" ", "&nbsp;").Replace(vbTab, "&nbsp;&nbsp;&nbsp;&nbsp;")
+		Return ques.Replace(vbCr, "").Replace(vbLf, "").Replace("<", "&lt;").Replace(">", "&gt;").Replace(vbCrLf, "<br>").Replace(" ", "&nbsp;").Replace(vbTab, "&nbsp;&nbsp;&nbsp;&nbsp;")
 	End Function
 
 	Private Function lineToMulti(ques As String) ' Hàm chuyển từ one line format thành multi line format
-		Return ques.Replace("&lt;", "<").Replace("&gt;", ">").Replace("<br>", vbCrLf).Replace("&nbsp;", " ").Replace("&nbsp;&nbsp;&nbsp;&nbsp;", vbTab)
+		Return ques.Replace(vbCr, "").Replace(vbLf, "").Replace("&lt;", "<").Replace("&gt;", ">").Replace("<br>", vbCrLf).Replace("&nbsp;", " ").Replace("&nbsp;&nbsp;&nbsp;&nbsp;", vbTab)
 	End Function
 
 	Private Sub loadQues(quesNum As Integer) ' Hàm load câu hỏi ra màn hình
