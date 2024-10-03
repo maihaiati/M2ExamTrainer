@@ -416,6 +416,7 @@ Public Class EditExamDialog
 			If txtQues.Text <> splitQues(0) And enableCommit Then
 				splitQues(0) = txtQues.Text
 				commitToQues(quesIndex, 0, multiToLine(splitQues(0)))
+				MsgBox(multiToLine(splitQues(0)) + "a")
 			End If
 		End If
 	End Sub

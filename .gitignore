@@ -87,3 +87,6 @@ Temporary Items
 .ionide
 
 # End of https://www.toptal.com/developers/gitignore/api/visualstudiocode,visualbasic
+/Exam/M2ExamCreator/M2ExamCreator/M2ExamCreator/bin
+/Exam/M2ExamCreator/M2ExamCreator/M2ExamCreator/obj
+/Exam/M2ExamCreator/M2ExamCreator/.vs
