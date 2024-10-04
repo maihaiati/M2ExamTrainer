@@ -90,7 +90,7 @@ namespace M2ExamCreator.SubUserControls
 
             selectedQues = quesItem;
             panelEditQues.Children.Clear();
-            InputQues inputQues = new InputQues(0, quesItem.getQuestion());
+            InputQues inputQues = new InputQues(quesItem.getNumQues(), quesItem.getQuestion());
             panelEditQues.Children.Add(inputQues);
 
             // Load các đáp án của câu hỏi
@@ -110,7 +110,13 @@ namespace M2ExamCreator.SubUserControls
             }
             Answer answer = new Answer();
             answer.Id = DateTime.Now.Ticks;
-            selectedQues.getQuestion().Answers.Add(answer);
+            for (int i = 0; i < exam.Questions.Count; i++)
+            {
+                if (selectedQues.getQuestion().Id == exam.Questions[i].Id)
+                {
+                    exam.Questions[i].Answers.Add(answer);
+                }
+            }
 
             InputAnswer inputAnswer = new InputAnswer(selectedQues.getQuestion().Answers.Count, answer);
             panelEditQues.Children.Add(inputAnswer);
@@ -128,21 +134,55 @@ namespace M2ExamCreator.SubUserControls
             // Add event handler
             quesItem.QuesItemClick += OnQuesItemClick;
             quesItem.QuesItemDelete += OnQuesItemDelete;
-
+            
             panelQuesList.Children.Add(quesItem);
+
+            // Save old seleted question
+            callSaveData();
+
+            // After save change ques to new ques
             loadQues(quesItem);
+        }
+
+        private void callSaveData()
+        {
+            if (selectedQues == null) return;
+            ((InputQues)panelEditQues.Children[0]).saveData();
+            for (int i = 1; i < panelEditQues.Children.Count; i++)
+            {
+                ((InputAnswer)panelEditQues.Children[i]).saveData();
+            }
         }
 
         private void OnQuesItemClick(object sender, EventArgs e)
         {
             // Lưu nội dung trước khi chuyển câu
+            callSaveData();
 
             loadQues((QuesItem)sender);
         }
 
         private void OnQuesItemDelete(object sender, EventArgs e)
         {
-
+            numOfQues--;
+            Question question = ((QuesItem)sender).getQuestion();
+            for (int i = 0; i < exam.Questions.Count; i++) { // Remove question element in exam
+                if (question.Id == exam.Questions[i].Id)
+                {
+                    exam.Questions.RemoveAt(i);
+                }
+            }
+            for (int i = 0; i < panelQuesList.Children.Count; i++) // Remove quesitem element in stack panel & reorder num ques
+            {
+                if (((QuesItem)panelQuesList.Children[i]).getQuestion().Id == question.Id)
+                {
+                    panelQuesList.Children.RemoveAt(i);
+                    for (int j = i; j < panelQuesList.Children.Count; j++) // Reorder num ques
+                    {
+                        ((QuesItem)panelQuesList.Children[j]).setNumQues(j + 1);
+                    }
+                }
+            }
         }
     }
 }

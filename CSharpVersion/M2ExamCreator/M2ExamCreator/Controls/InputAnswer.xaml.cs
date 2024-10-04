@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using RichTextBox = System.Windows.Controls.RichTextBox;
 using UserControl = System.Windows.Controls.UserControl;
 
 namespace M2ExamCreator.Controls
@@ -21,34 +22,64 @@ namespace M2ExamCreator.Controls
     /// </summary>
     public partial class InputAnswer : UserControl
     {
-        private int numQues;
+        private int numAns;
         private Answer answer;
 
-        public InputAnswer(int numQues, Answer answer)
+        public InputAnswer(int numAns = 0, Answer answer = null)
         {
             InitializeComponent();
 
-            this.numQues = numQues;
+            this.numAns = numAns;
             this.answer = answer;
-            loadNumQues();
+            loadNumAns();
         }
 
-        private void loadNumQues()
+        private void loadNumAns()
         {
-            lblTitle.Content = "Đáp án " + numQues;
+            lblTitle.Content = "Đáp án " + numAns;
         }
 
-        public int getNumQues() { 
-            return numQues;
+        public int getNumAnd() { 
+            return numAns;
         }
 
-        public Answer getAnswer() { 
-            return answer; 
+        public void setNumQues(int numAns) { 
+            this.numAns = numAns;
+            loadNumAns();
         }
 
-        public void setNumQues(int numQues) { 
-            this.numQues = numQues;
-            loadNumQues();
+        private string getContent(RichTextBox richTextBox)
+        {
+            TextRange textRange = new TextRange(
+                richTextBox.Document.ContentStart,
+                richTextBox.Document.ContentEnd
+            );
+            return textRange.Text;
+        }
+
+        private void setContent(RichTextBox richTextBox, string text)
+        {
+            TextRange textRange = new TextRange(
+                richTextBox.Document.ContentStart,
+                richTextBox.Document.ContentEnd
+            );
+            textRange.Text = text;
+        }
+
+        private void loadData()
+        {
+            if (answer != null)
+            {
+                setContent(richAns, answer.Content);
+            }
+        }
+
+        public void saveData()
+        {
+            if (answer != null)
+            {
+                answer.Content = getContent(richAns);
+            }
         }
     }
 }

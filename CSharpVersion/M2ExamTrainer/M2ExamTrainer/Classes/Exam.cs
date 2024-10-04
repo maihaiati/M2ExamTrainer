@@ -24,16 +24,17 @@ public static partial class ExamReflection {
         string.Concat(
           "CgpFeGFtLnByb3RvIlIKBEV4YW0SDAoEbmFtZRgBIAEoCRIOCgZhdXRob3IY",
           "AiABKAkSDgoGbWludXRlGAMgASgDEhwKCXF1ZXN0aW9ucxgEIAMoCzIJLlF1",
-          "ZXN0aW9uIncKCFF1ZXN0aW9uEgoKAmlkGAEgASgDEhIKCnRydWVBbnN3ZXIY",
-          "AiABKAMSDQoFaW1hZ2UYAyABKAkSDQoFYXVkaW8YBCABKAkSEwoLbXVsdGlB",
-          "bnN3ZXIYBSABKAgSGAoHYW5zd2VycxgGIAMoCzIHLkFuc3dlciIlCgZBbnN3",
-          "ZXISCgoCaWQYASABKAMSDwoHY29udGVudBgCIAEoCWIGcHJvdG8z"));
+          "ZXN0aW9uInQKCFF1ZXN0aW9uEgoKAmlkGAEgASgDEg8KB2NvbnRlbnQYAiAB",
+          "KAkSDQoFaW1hZ2UYAyABKAkSDQoFYXVkaW8YBCABKAkSEwoLbXVsdGlBbnN3",
+          "ZXIYBSABKAgSGAoHYW5zd2VycxgGIAMoCzIHLkFuc3dlciI5CgZBbnN3ZXIS",
+          "CgoCaWQYASABKAMSDwoHY29udGVudBgCIAEoCRISCgp0cnVlQW5zd2VyGAMg",
+          "ASgIYgZwcm90bzM="));
     descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
         new pbr::FileDescriptor[] { },
         new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
           new pbr::GeneratedClrTypeInfo(typeof(global::Exam), global::Exam.Parser, new[]{ "Name", "Author", "Minute", "Questions" }, null, null, null, null),
-          new pbr::GeneratedClrTypeInfo(typeof(global::Question), global::Question.Parser, new[]{ "Id", "TrueAnswer", "Image", "Audio", "MultiAnswer", "Answers" }, null, null, null, null),
-          new pbr::GeneratedClrTypeInfo(typeof(global::Answer), global::Answer.Parser, new[]{ "Id", "Content" }, null, null, null, null)
+          new pbr::GeneratedClrTypeInfo(typeof(global::Question), global::Question.Parser, new[]{ "Id", "Content", "Image", "Audio", "MultiAnswer", "Answers" }, null, null, null, null),
+          new pbr::GeneratedClrTypeInfo(typeof(global::Answer), global::Answer.Parser, new[]{ "Id", "Content", "TrueAnswer" }, null, null, null, null)
         }));
   }
   #endregion
@@ -366,7 +367,7 @@ public sealed partial class Question : pb::IMessage<Question>
   [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
   public Question(Question other) : this() {
     id_ = other.id_;
-    trueAnswer_ = other.trueAnswer_;
+    content_ = other.content_;
     image_ = other.image_;
     audio_ = other.audio_;
     multiAnswer_ = other.multiAnswer_;
@@ -392,15 +393,15 @@ public sealed partial class Question : pb::IMessage<Question>
     }
   }
 
-  /// <summary>Field number for the "trueAnswer" field.</summary>
-  public const int TrueAnswerFieldNumber = 2;
-  private long trueAnswer_;
+  /// <summary>Field number for the "content" field.</summary>
+  public const int ContentFieldNumber = 2;
+  private string content_ = "";
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-  public long TrueAnswer {
-    get { return trueAnswer_; }
+  public string Content {
+    get { return content_; }
     set {
-      trueAnswer_ = value;
+      content_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
     }
   }
 
@@ -467,7 +468,7 @@ public sealed partial class Question : pb::IMessage<Question>
       return true;
     }
     if (Id != other.Id) return false;
-    if (TrueAnswer != other.TrueAnswer) return false;
+    if (Content != other.Content) return false;
     if (Image != other.Image) return false;
     if (Audio != other.Audio) return false;
     if (MultiAnswer != other.MultiAnswer) return false;
@@ -480,7 +481,7 @@ public sealed partial class Question : pb::IMessage<Question>
   public override int GetHashCode() {
     int hash = 1;
     if (Id != 0L) hash ^= Id.GetHashCode();
-    if (TrueAnswer != 0L) hash ^= TrueAnswer.GetHashCode();
+    if (Content.Length != 0) hash ^= Content.GetHashCode();
     if (Image.Length != 0) hash ^= Image.GetHashCode();
     if (Audio.Length != 0) hash ^= Audio.GetHashCode();
     if (MultiAnswer != false) hash ^= MultiAnswer.GetHashCode();
@@ -507,9 +508,9 @@ public sealed partial class Question : pb::IMessage<Question>
       output.WriteRawTag(8);
       output.WriteInt64(Id);
     }
-    if (TrueAnswer != 0L) {
-      output.WriteRawTag(16);
-      output.WriteInt64(TrueAnswer);
+    if (Content.Length != 0) {
+      output.WriteRawTag(18);
+      output.WriteString(Content);
     }
     if (Image.Length != 0) {
       output.WriteRawTag(26);
@@ -538,9 +539,9 @@ public sealed partial class Question : pb::IMessage<Question>
       output.WriteRawTag(8);
       output.WriteInt64(Id);
     }
-    if (TrueAnswer != 0L) {
-      output.WriteRawTag(16);
-      output.WriteInt64(TrueAnswer);
+    if (Content.Length != 0) {
+      output.WriteRawTag(18);
+      output.WriteString(Content);
     }
     if (Image.Length != 0) {
       output.WriteRawTag(26);
@@ -568,8 +569,8 @@ public sealed partial class Question : pb::IMessage<Question>
     if (Id != 0L) {
       size += 1 + pb::CodedOutputStream.ComputeInt64Size(Id);
     }
-    if (TrueAnswer != 0L) {
-      size += 1 + pb::CodedOutputStream.ComputeInt64Size(TrueAnswer);
+    if (Content.Length != 0) {
+      size += 1 + pb::CodedOutputStream.ComputeStringSize(Content);
     }
     if (Image.Length != 0) {
       size += 1 + pb::CodedOutputStream.ComputeStringSize(Image);
@@ -596,8 +597,8 @@ public sealed partial class Question : pb::IMessage<Question>
     if (other.Id != 0L) {
       Id = other.Id;
     }
-    if (other.TrueAnswer != 0L) {
-      TrueAnswer = other.TrueAnswer;
+    if (other.Content.Length != 0) {
+      Content = other.Content;
     }
     if (other.Image.Length != 0) {
       Image = other.Image;
@@ -628,8 +629,8 @@ public sealed partial class Question : pb::IMessage<Question>
           Id = input.ReadInt64();
           break;
         }
-        case 16: {
-          TrueAnswer = input.ReadInt64();
+        case 18: {
+          Content = input.ReadString();
           break;
         }
         case 26: {
@@ -667,8 +668,8 @@ public sealed partial class Question : pb::IMessage<Question>
           Id = input.ReadInt64();
           break;
         }
-        case 16: {
-          TrueAnswer = input.ReadInt64();
+        case 18: {
+          Content = input.ReadString();
           break;
         }
         case 26: {
@@ -731,6 +732,7 @@ public sealed partial class Answer : pb::IMessage<Answer>
   public Answer(Answer other) : this() {
     id_ = other.id_;
     content_ = other.content_;
+    trueAnswer_ = other.trueAnswer_;
     _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
   }
 
@@ -764,6 +766,18 @@ public sealed partial class Answer : pb::IMessage<Answer>
     }
   }
 
+  /// <summary>Field number for the "trueAnswer" field.</summary>
+  public const int TrueAnswerFieldNumber = 3;
+  private bool trueAnswer_;
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+  public bool TrueAnswer {
+    get { return trueAnswer_; }
+    set {
+      trueAnswer_ = value;
+    }
+  }
+
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
   public override bool Equals(object other) {
@@ -781,6 +795,7 @@ public sealed partial class Answer : pb::IMessage<Answer>
     }
     if (Id != other.Id) return false;
     if (Content != other.Content) return false;
+    if (TrueAnswer != other.TrueAnswer) return false;
     return Equals(_unknownFields, other._unknownFields);
   }
 
@@ -790,6 +805,7 @@ public sealed partial class Answer : pb::IMessage<Answer>
     int hash = 1;
     if (Id != 0L) hash ^= Id.GetHashCode();
     if (Content.Length != 0) hash ^= Content.GetHashCode();
+    if (TrueAnswer != false) hash ^= TrueAnswer.GetHashCode();
     if (_unknownFields != null) {
       hash ^= _unknownFields.GetHashCode();
     }
@@ -816,6 +832,10 @@ public sealed partial class Answer : pb::IMessage<Answer>
       output.WriteRawTag(18);
       output.WriteString(Content);
     }
+    if (TrueAnswer != false) {
+      output.WriteRawTag(24);
+      output.WriteBool(TrueAnswer);
+    }
     if (_unknownFields != null) {
       _unknownFields.WriteTo(output);
     }
@@ -834,6 +854,10 @@ public sealed partial class Answer : pb::IMessage<Answer>
       output.WriteRawTag(18);
       output.WriteString(Content);
     }
+    if (TrueAnswer != false) {
+      output.WriteRawTag(24);
+      output.WriteBool(TrueAnswer);
+    }
     if (_unknownFields != null) {
       _unknownFields.WriteTo(ref output);
     }
@@ -849,6 +873,9 @@ public sealed partial class Answer : pb::IMessage<Answer>
     }
     if (Content.Length != 0) {
       size += 1 + pb::CodedOutputStream.ComputeStringSize(Content);
+    }
+    if (TrueAnswer != false) {
+      size += 1 + 1;
     }
     if (_unknownFields != null) {
       size += _unknownFields.CalculateSize();
@@ -867,6 +894,9 @@ public sealed partial class Answer : pb::IMessage<Answer>
     }
     if (other.Content.Length != 0) {
       Content = other.Content;
+    }
+    if (other.TrueAnswer != false) {
+      TrueAnswer = other.TrueAnswer;
     }
     _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
   }
@@ -891,6 +921,10 @@ public sealed partial class Answer : pb::IMessage<Answer>
           Content = input.ReadString();
           break;
         }
+        case 24: {
+          TrueAnswer = input.ReadBool();
+          break;
+        }
       }
     }
   #endif
@@ -912,6 +946,10 @@ public sealed partial class Answer : pb::IMessage<Answer>
         }
         case 18: {
           Content = input.ReadString();
+          break;
+        }
+        case 24: {
+          TrueAnswer = input.ReadBool();
           break;
         }
       }

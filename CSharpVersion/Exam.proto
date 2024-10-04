@@ -10,7 +10,7 @@ message Exam {
 
 message Question {
     int64 id = 1;
-    int64 trueAnswer = 2;
+	string content = 2;
     string image = 3;
     string audio = 4;
     bool multiAnswer = 5;
@@ -20,4 +20,5 @@ message Question {
 message Answer {
     int64 id = 1;
     string content = 2;
+	bool trueAnswer = 3;
 }

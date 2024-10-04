@@ -50,8 +50,12 @@ namespace M2ExamCreator.Controls
             this.numQues = numQues;
             this.question = question;
 
-            lblNumQues.Content = "Câu " + numQues;
+            refreshContent();
+        }
 
+        private void refreshContent()
+        {
+            lblNumQues.Content = "Câu " + numQues;
             btnDel.Content = FindResource("ButtonDel");
         }
 
@@ -61,6 +65,7 @@ namespace M2ExamCreator.Controls
 
         public void setNumQues(int numQues) { 
             this.numQues = numQues;
+            refreshContent();
         }
 
         public Question getQuestion() { 

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using RichTextBox = System.Windows.Controls.RichTextBox;
 using UserControl = System.Windows.Controls.UserControl;
 
 namespace M2ExamCreator.Controls
@@ -35,9 +36,38 @@ namespace M2ExamCreator.Controls
             loadData();
         }
 
+        private string getContent(RichTextBox richTextBox)
+        {
+            TextRange textRange = new TextRange(
+                richTextBox.Document.ContentStart,
+                richTextBox.Document.ContentEnd
+            );
+            return textRange.Text;
+        }
+
+        private void setContent(RichTextBox richTextBox, string text)
+        {
+            TextRange textRange = new TextRange(
+                richTextBox.Document.ContentStart, 
+                richTextBox.Document.ContentEnd
+            );
+            textRange.Text = text;
+        }
+
         private void loadData()
         {
+            if (question != null)
+            {
+                setContent(richQues, question.Content);
+            }
+        }
 
+        public void saveData()
+        {
+            if (question != null)
+            {
+                question.Content = getContent(richQues);
+            }
         }
     }
 }
