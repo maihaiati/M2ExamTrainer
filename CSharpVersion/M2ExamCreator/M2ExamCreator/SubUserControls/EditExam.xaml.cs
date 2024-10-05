@@ -110,13 +110,14 @@ namespace M2ExamCreator.SubUserControls
             }
             Answer answer = new Answer();
             answer.Id = DateTime.Now.Ticks;
-            for (int i = 0; i < exam.Questions.Count; i++)
-            {
-                if (selectedQues.getQuestion().Id == exam.Questions[i].Id)
-                {
-                    exam.Questions[i].Answers.Add(answer);
-                }
-            }
+            //for (int i = 0; i < exam.Questions.Count; i++)
+            //{
+            //    if (selectedQues.getQuestion().Id == exam.Questions[i].Id)
+            //    {
+            //        exam.Questions[i].Answers.Add(answer);
+            //    }
+            //}
+            selectedQues.getQuestion().Answers.Add(answer);
 
             InputAnswer inputAnswer = new InputAnswer(selectedQues.getQuestion().Answers.Count, answer);
             panelEditQues.Children.Add(inputAnswer);
