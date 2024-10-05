@@ -32,6 +32,7 @@ namespace M2ExamCreator.Controls
             this.numAns = numAns;
             this.answer = answer;
             loadNumAns();
+            loadData();
         }
 
         private void loadNumAns()
