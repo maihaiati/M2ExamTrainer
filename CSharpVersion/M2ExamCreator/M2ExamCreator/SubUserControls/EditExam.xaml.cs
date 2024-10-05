@@ -110,13 +110,6 @@ namespace M2ExamCreator.SubUserControls
             }
             Answer answer = new Answer();
             answer.Id = DateTime.Now.Ticks;
-            //for (int i = 0; i < exam.Questions.Count; i++)
-            //{
-            //    if (selectedQues.getQuestion().Id == exam.Questions[i].Id)
-            //    {
-            //        exam.Questions[i].Answers.Add(answer);
-            //    }
-            //}
             selectedQues.getQuestion().Answers.Add(answer);
 
             InputAnswer inputAnswer = new InputAnswer(selectedQues.getQuestion().Answers.Count, answer);
@@ -183,6 +176,14 @@ namespace M2ExamCreator.SubUserControls
                         ((QuesItem)panelQuesList.Children[j]).setNumQues(j + 1);
                     }
                 }
+            }
+            // Remove event handler
+            ((QuesItem)sender).QuesItemClick -= OnQuesItemClick;
+            ((QuesItem)sender).QuesItemDelete -= OnQuesItemDelete;
+
+            if (((QuesItem)sender) == selectedQues)
+            {
+                // TODO: Add code here to handle selection ques
             }
         }
     }
