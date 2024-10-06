@@ -342,7 +342,7 @@ class Ui_M2ExamTrainer(object):
         self.btnC.setEnabled(False)
         self.btnD.setEnabled(False)
         self.screen.setHtml("Câu " + str(numOfQues + 1) + "/" + str(len(questions)) + ": ")
-        self.screen.append(str(questions[numOfQues][0]).replace("&nbsp;", " "))
+        self.screen.append(str(questions[numOfQues][0]))
         self.screen.append('')
         for i in range(1, len(questions[numOfQues])):
             if i == 1 and str(questions[numOfQues][i]) != " ":
