@@ -84,12 +84,17 @@ namespace M2ExamCreator.SubUserControls
 
         private void loadQues(QuesItem quesItem)
         {
+            panelEditQues.Children.Clear();
+            if (quesItem == null)
+            {
+                selectedQues = null;
+                return;
+            }
             quesItem.recBackground.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFD80077")); // Đặt màu sắc cho item được chọn
             if (selectedQues == quesItem) return;
             if (selectedQues != null) selectedQues.recBackground.Fill = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF5B5B5B")); // Đặt màu sắc cũ cho item bỏ chọn
 
             selectedQues = quesItem;
-            panelEditQues.Children.Clear();
             InputQues inputQues = new InputQues(quesItem.getNumQues(), quesItem.getQuestion());
             panelEditQues.Children.Add(inputQues);
 
@@ -181,9 +186,23 @@ namespace M2ExamCreator.SubUserControls
             ((QuesItem)sender).QuesItemClick -= OnQuesItemClick;
             ((QuesItem)sender).QuesItemDelete -= OnQuesItemDelete;
 
+            // Change selected ques
             if (((QuesItem)sender) == selectedQues)
             {
-                // TODO: Add code here to handle selection ques
+                if (selectedQues.getNumQues() > 1)
+                {
+                    for (int i = 0; i < panelQuesList.Children.Count; i++)
+                    {
+                        if (((QuesItem)panelQuesList.Children[i]).getNumQues() == selectedQues.getNumQues() - 1)
+                        {
+                            loadQues((QuesItem)panelQuesList.Children[i]);
+                        }
+                    }
+                }
+                else
+                {
+                    loadQues(null);
+                }
             }
         }
     }
