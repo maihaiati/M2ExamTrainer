@@ -112,6 +112,7 @@
                 </ControlTemplate>
             </Button.Template>
         </Button>
+        <CheckBox x:Name="cbTrue" Content="Đáp án đúng" HorizontalAlignment="Left" Margin="507,22,0,0" VerticalAlignment="Top" Foreground="White" Checked="cbTrue_CheckedChange" Unchecked="cbTrue_CheckedChange"/>
 
     </Grid>
 </UserControl>

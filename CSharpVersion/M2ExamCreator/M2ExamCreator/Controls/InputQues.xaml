@@ -4,11 +4,10 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:M2ExamCreator.Controls"
-             mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="619">
+             mc:Ignorable="d" d:DesignWidth="619" Height="310">
     <Grid>
         <Label x:Name="lblTitle" Content="Câu hỏi:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="22"/>
-        <RichTextBox x:Name="richQues" Margin="10,54,10,40" Background="#FF6B6B6B" Foreground="White">
+        <RichTextBox x:Name="richQues" Margin="10,54,10,50" Background="#FF6B6B6B" Foreground="White">
             <FlowDocument>
                 <Paragraph>
                     <Run Text=""/>
@@ -27,7 +26,7 @@
                 </ControlTemplate>
             </RichTextBox.Template>
         </RichTextBox>
-        <Button x:Name="btnBold" Content="B" HorizontalAlignment="Left" Margin="24,270,0,0" VerticalAlignment="Top" FontWeight="Bold" Width="20" Height="20" Foreground="White">
+        <Button x:Name="btnBold" Content="B" HorizontalAlignment="Left" Margin="24,270,0,0" VerticalAlignment="Top" FontWeight="Bold" Width="30" Height="30" Foreground="White" FontSize="16">
             <Button.BorderBrush>
                 <SolidColorBrush Color="#FF707070" Opacity="1"/>
             </Button.BorderBrush>
@@ -45,7 +44,7 @@
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <Button x:Name="btnItalic" Content="I" HorizontalAlignment="Left" Margin="54,270,0,0" VerticalAlignment="Top" Width="20" Height="20" Foreground="White" FontFamily="High Tower Text" FontStyle="Italic">
+        <Button x:Name="btnItalic" Content="I" HorizontalAlignment="Left" Margin="66,270,0,0" VerticalAlignment="Top" Width="30" Height="30" Foreground="White" FontFamily="High Tower Text" FontStyle="Italic" FontSize="16">
             <Button.BorderBrush>
                 <SolidColorBrush Color="#FF707070" Opacity="1"/>
             </Button.BorderBrush>
@@ -63,7 +62,7 @@
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <Button x:Name="btnUnderline" Content="U̲" HorizontalAlignment="Left" Margin="85,270,0,0" VerticalAlignment="Top" Width="20" Height="20" Foreground="White">
+        <Button x:Name="btnUnderline" Content="U̲" HorizontalAlignment="Left" Margin="111,270,0,0" VerticalAlignment="Top" Width="30" Height="30" Foreground="White" FontSize="16">
             <Button.BorderBrush>
                 <SolidColorBrush Color="#FF707070" Opacity="1"/>
             </Button.BorderBrush>

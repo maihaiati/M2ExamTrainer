@@ -129,5 +129,13 @@ namespace M2ExamTrainer.Classes
             }
             return exam;
         }
+
+        public static void WriteExam(Exam exam, string dir)
+        {
+            using (var output = File.Create(dir))
+            {
+                exam.WriteTo(output);
+            }
+        }
     }
 }

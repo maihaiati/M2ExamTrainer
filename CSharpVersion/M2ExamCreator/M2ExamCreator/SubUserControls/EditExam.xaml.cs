@@ -27,10 +27,10 @@ namespace M2ExamCreator.SubUserControls
     /// </summary>
     public partial class EditExam : UserControl
     {
-        private string examFile;
+        private string examFile; // Đường dẫn đến file exam
         private Exam exam;
 
-        private int numOfQues;
+        private int numOfQues; // Số lượng câu hỏi trong exam
         private QuesItem selectedQues = null;
 
 #pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider adding the 'required' modifier or declaring as nullable.
@@ -204,6 +204,12 @@ namespace M2ExamCreator.SubUserControls
                     loadQues(null);
                 }
             }
+        }
+
+        private void btnSave_Click(object sender, RoutedEventArgs e)
+        {
+            callSaveData();
+            QuickAction.WriteExam(exam, examFile);
         }
     }
 }

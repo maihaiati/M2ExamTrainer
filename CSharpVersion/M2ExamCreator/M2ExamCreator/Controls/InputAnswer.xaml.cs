@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Color = System.Windows.Media.Color;
+using ColorConverter = System.Windows.Media.ColorConverter;
 using RichTextBox = System.Windows.Controls.RichTextBox;
 using UserControl = System.Windows.Controls.UserControl;
 
@@ -67,20 +69,33 @@ namespace M2ExamCreator.Controls
             textRange.Text = text;
         }
 
-        private void loadData()
+        private void loadData() // Hàm load dữ liệu
         {
             if (answer != null)
             {
                 setContent(richAns, answer.Content);
+                if (answer.TrueAnswer)
+                {
+                    lblTitle.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF00FFB3"));
+                    cbTrue.IsChecked = true;
+                }
             }
         }
 
-        public void saveData()
+        public void saveData() // Hàm lưu dữ liệu
         {
             if (answer != null)
             {
                 answer.Content = getContent(richAns);
+                if (cbTrue.IsChecked == true) answer.TrueAnswer = true;
+                else answer.TrueAnswer = false;
             }
+        }
+
+        private void cbTrue_CheckedChange(object sender, RoutedEventArgs e)
+        {
+            if (cbTrue.IsChecked == true) lblTitle.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF00FFB3"));
+            else lblTitle.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFFFFFFF"));
         }
     }
 }
