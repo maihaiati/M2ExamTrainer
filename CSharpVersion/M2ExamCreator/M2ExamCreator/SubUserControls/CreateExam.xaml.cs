@@ -67,6 +67,8 @@ namespace M2ExamCreator.SubUserControls
 
             try
             {
+                if (dir == "CANCEL_SELECT_DIR") return;
+
                 if (QuickAction.CreateExam(dir, name, fileName, author, minute))
                 {
                     EditExam editExam = new EditExam(examFile);
@@ -82,6 +84,15 @@ namespace M2ExamCreator.SubUserControls
             {
                 MessageBox.Show("Đã xảy ra lỗi không xác định!\nMã lỗi: " + ex.ToString(), "M2ExamCreator", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btnBack_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = (MainWindow)Application.Current.MainWindow;
+            Startup startup = new Startup();
+
+            mainWindow.MainGrid.Children.Clear();
+            mainWindow.MainGrid.Children.Add(startup);
         }
     }
 }

@@ -10,31 +10,6 @@
         <ImageBrush ImageSource="/background.jpg"/>
     </Window.Background>
     <Grid x:Name="MainGrid">
-        <Label x:Name="label" Content="M2ExamCreator" HorizontalAlignment="Center" Margin="0,98,0,0" VerticalAlignment="Top" Foreground="White" FontWeight="Bold" FontSize="72"/>
-        <Button x:Name="btnBrowse" Content="Mở đề thi" HorizontalAlignment="Center" Margin="0,460,0,0" VerticalAlignment="Top" Width="303" Height="72" Background="#FFC3C3C3" BorderBrush="{x:Null}" Foreground="#FFB82174" FontSize="36" FontWeight="Bold" Click="btnBrowse_Click">
-            <Button.Template>
-                <ControlTemplate TargetType="{x:Type Button}">
-                    <Border Background="{TemplateBinding Background}" 
-                        BorderBrush="{TemplateBinding BorderBrush}" 
-                        BorderThickness="{TemplateBinding BorderThickness}" 
-                        CornerRadius="10">
-                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    </Border>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
-        <Button x:Name="btnCreate" Content="Tạo đề thi" HorizontalAlignment="Center" Margin="0,367,0,0" VerticalAlignment="Top" Width="303" Height="72" Background="#FFB82174" BorderBrush="{x:Null}" Foreground="White" FontSize="36" FontWeight="Bold" Click="btnCreate_Click">
-            <Button.Template>
-                <ControlTemplate TargetType="{x:Type Button}">
-                    <Border Background="{TemplateBinding Background}" 
-                        BorderBrush="{TemplateBinding BorderBrush}" 
-                        BorderThickness="{TemplateBinding BorderThickness}" 
-                        CornerRadius="10">
-                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    </Border>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
-
+        
     </Grid>
 </Window>

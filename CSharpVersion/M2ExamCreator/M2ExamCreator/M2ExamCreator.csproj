@@ -12,16 +12,16 @@
   <ItemGroup>
     <None Remove="background.jpg" />
     <None Remove="Controls\btnDel.png" />
+    <None Remove="SubUserControls\back.png" />
     <None Remove="SubUserControls\background.jpg" />
-    <None Remove="SubUserControls\save-svgrepo-com.png" />
     <None Remove="SubUserControls\setting-svgrepo-com.png" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="background.jpg" />
     <Resource Include="Controls\btndel.png" />
+    <Resource Include="SubUserControls\back.png" />
     <Resource Include="SubUserControls\background.jpg" />
-    <Resource Include="SubUserControls\save-svgrepo-com.png" />
     <Resource Include="SubUserControls\setting-svgrepo-com.png" />
   </ItemGroup>
 

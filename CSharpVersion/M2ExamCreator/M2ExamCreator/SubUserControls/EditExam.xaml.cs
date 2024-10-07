@@ -151,6 +151,7 @@ namespace M2ExamCreator.SubUserControls
             {
                 ((InputAnswer)panelEditQues.Children[i]).saveData();
             }
+            QuickAction.WriteExam(exam, examFile);
         }
 
         private void OnQuesItemClick(object sender, EventArgs e)
@@ -193,23 +194,15 @@ namespace M2ExamCreator.SubUserControls
                 {
                     for (int i = 0; i < panelQuesList.Children.Count; i++)
                     {
-                        if (((QuesItem)panelQuesList.Children[i]).getNumQues() == selectedQues.getNumQues() - 1)
-                        {
+                        if (((QuesItem)panelQuesList.Children[i]).getNumQues() == selectedQues.getNumQues() - 1) 
                             loadQues((QuesItem)panelQuesList.Children[i]);
-                        }
                     }
                 }
-                else
-                {
-                    loadQues(null);
-                }
+                else loadQues(null);
             }
-        }
 
-        private void btnSave_Click(object sender, RoutedEventArgs e)
-        {
+            // Save data
             callSaveData();
-            QuickAction.WriteExam(exam, examFile);
         }
     }
 }

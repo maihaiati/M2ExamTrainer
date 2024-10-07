@@ -21,27 +21,11 @@ namespace M2ExamCreator
         public MainWindow()
         {
             InitializeComponent();
-        }
 
-        private void btnCreate_Click(object sender, RoutedEventArgs e)
-        {
-            CreateExam createExam = new CreateExam();
+            Startup startup = new Startup();
 
             MainGrid.Children.Clear();
-            MainGrid.Children.Add(createExam);
-        }
-
-        private void btnBrowse_Click(object sender, RoutedEventArgs e)
-        {
-            string examFile = QuickAction.GetFile();
-
-            if (!String.IsNullOrWhiteSpace(examFile))
-            {
-                EditExam editExam = new EditExam(examFile);
-
-                MainGrid.Children.Clear();
-                MainGrid.Children.Add(editExam);
-            }
+            MainGrid.Children.Add(startup);
         }
     }
 }

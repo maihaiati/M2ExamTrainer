@@ -102,6 +102,11 @@
                 </ControlTemplate>
             </Button.Template>
         </Button>
+        <Button x:Name="btnBack" HorizontalAlignment="Left" Margin="40,40,0,0" VerticalAlignment="Top" Height="50" Width="50" Foreground="{x:Null}" BorderBrush="{x:Null}" Click="btnBack_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="/SubUserControls/back.png"/>
+            </Button.Background>
+        </Button>
 
     </Grid>
 </UserControl>

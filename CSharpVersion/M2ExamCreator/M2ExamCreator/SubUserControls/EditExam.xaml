@@ -17,11 +17,6 @@
             <ScrollViewer x:Name="scrollQuesList" VerticalScrollBarVisibility="Hidden" CanContentScroll="True" Margin="0,81,0,20">
                 <StackPanel x:Name="panelQuesList" Margin="-2,-2.3,10,48" Height="618" Width="263"/>
             </ScrollViewer>
-            <Button x:Name="btnSave" HorizontalAlignment="Left" Margin="62,10,0,0" VerticalAlignment="Top" Height="30" Width="30" Foreground="{x:Null}" BorderBrush="{x:Null}" Click="btnSave_Click">
-                <Button.Background>
-                    <ImageBrush ImageSource="/SubUserControls/save-svgrepo-com.png"/>
-                </Button.Background>
-            </Button>
             <Button x:Name="btnSetting" HorizontalAlignment="Left" Margin="16,10,0,0" VerticalAlignment="Top" Height="30" Width="30" Foreground="{x:Null}" BorderBrush="{x:Null}">
                 <Button.Background>
                     <ImageBrush ImageSource="/SubUserControls/setting-svgrepo-com.png"/>
