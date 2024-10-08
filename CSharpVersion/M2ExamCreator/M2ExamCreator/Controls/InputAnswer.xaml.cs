@@ -92,6 +92,12 @@ namespace M2ExamCreator.Controls
             }
         }
 
+        public bool isTrueAnswer()
+        {
+            if (cbTrue.IsChecked == true) return true;
+            return false;
+        }
+
         private void cbTrue_CheckedChange(object sender, RoutedEventArgs e)
         {
             if (cbTrue.IsChecked == true) lblTitle.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF00FFB3"));

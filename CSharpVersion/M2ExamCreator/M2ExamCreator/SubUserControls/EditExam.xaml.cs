@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolTip;
 using Application = System.Windows.Application;
 using Color = System.Windows.Media.Color;
 using ColorConverter = System.Windows.Media.ColorConverter;
@@ -146,10 +147,25 @@ namespace M2ExamCreator.SubUserControls
         private void callSaveData()
         {
             if (selectedQues == null) return;
+            if (panelEditQues.Children.Count == 0)
+            {
+               MessageBox.Show("Đã xảy ra lỗi không xác định liên quan đến việc lưu trữ nội dung đề thi. Vui lòng sao lưu nội dung để tránh bị mất mát dữ liệu!", "M2ExamCreator", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Save question
             ((InputQues)panelEditQues.Children[0]).saveData();
+
+            // Save answer
+            int countTrueAnswer = 0;
             for (int i = 1; i < panelEditQues.Children.Count; i++)
             {
                 ((InputAnswer)panelEditQues.Children[i]).saveData();
+                if (((InputAnswer)panelEditQues.Children[i]).isTrueAnswer()) countTrueAnswer++;
+            }
+            if (countTrueAnswer > 1)
+            {
+                selectedQues.getQuestion().MultiAnswer = true;
             }
             QuickAction.WriteExam(exam, examFile);
         }
@@ -202,6 +218,12 @@ namespace M2ExamCreator.SubUserControls
             }
 
             // Save data
+            callSaveData();
+        }
+
+        private void onUnloaded(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Called");
             callSaveData();
         }
     }
