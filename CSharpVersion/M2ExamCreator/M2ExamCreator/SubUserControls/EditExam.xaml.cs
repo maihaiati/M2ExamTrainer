@@ -149,7 +149,7 @@ namespace M2ExamCreator.SubUserControls
             if (selectedQues == null) return;
             if (panelEditQues.Children.Count == 0)
             {
-               MessageBox.Show("Đã xảy ra lỗi không xác định liên quan đến việc lưu trữ nội dung đề thi. Vui lòng sao lưu nội dung để tránh bị mất mát dữ liệu!", "M2ExamCreator", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Đã xảy ra lỗi không xác định liên quan đến việc lưu trữ nội dung đề thi. Vui lòng sao lưu nội dung để tránh bị mất mát dữ liệu!", "M2ExamCreator", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -221,7 +221,7 @@ namespace M2ExamCreator.SubUserControls
             callSaveData();
         }
 
-        private void onUnloaded(object sender, RoutedEventArgs e)
+        protected void OnUnloaded(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("Called");
             callSaveData();
