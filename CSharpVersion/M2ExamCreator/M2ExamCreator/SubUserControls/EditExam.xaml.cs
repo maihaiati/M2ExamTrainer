@@ -221,10 +221,10 @@ namespace M2ExamCreator.SubUserControls
             callSaveData();
         }
 
-        protected void OnUnloaded(object sender, RoutedEventArgs e)
+        private void OnUnloaded(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Called");
-            callSaveData();
+            MessageBox.Show("Called", "M2ExamCreator", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //callSaveData();
         }
     }
 }

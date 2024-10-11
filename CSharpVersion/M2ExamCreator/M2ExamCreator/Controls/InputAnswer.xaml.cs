@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Color = System.Windows.Media.Color;
 using ColorConverter = System.Windows.Media.ColorConverter;
+using MessageBox = System.Windows.Forms.MessageBox;
 using RichTextBox = System.Windows.Controls.RichTextBox;
 using UserControl = System.Windows.Controls.UserControl;
 
@@ -102,6 +103,12 @@ namespace M2ExamCreator.Controls
         {
             if (cbTrue.IsChecked == true) lblTitle.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF00FFB3"));
             else lblTitle.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFFFFFFF"));
+        }
+
+        private void OnUnloaded(object sender, RoutedEventArgs e)
+        {
+            // TODO: Bạn đang code chức năng lưu dữ liệu trên sự kiện Unloaded
+            saveData();
         }
     }
 }
