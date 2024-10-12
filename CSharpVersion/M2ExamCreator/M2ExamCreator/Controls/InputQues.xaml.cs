@@ -69,5 +69,10 @@ namespace M2ExamCreator.Controls
                 question.Content = getContent(richQues);
             }
         }
+
+        private void OnUnloaded(object sender, RoutedEventArgs e)
+        {
+            saveData();
+        }
     }
 }
