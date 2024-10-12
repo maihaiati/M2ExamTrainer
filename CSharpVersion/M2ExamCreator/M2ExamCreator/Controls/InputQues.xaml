@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:M2ExamCreator.Controls"
+             Unloaded="OnUnloaded"
              mc:Ignorable="d" d:DesignWidth="619" Height="310">
     <Grid>
         <Label x:Name="lblTitle" Content="Câu hỏi:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Foreground="White" FontSize="22"/>
