@@ -172,6 +172,8 @@ namespace M2ExamCreator.SubUserControls
 
         private void OnQuesItemClick(object sender, EventArgs e)
         {
+            if ((QuesItem)sender == selectedQues) return;
+
             // Lưu nội dung trước khi chuyển câu
             callSaveData();
 
