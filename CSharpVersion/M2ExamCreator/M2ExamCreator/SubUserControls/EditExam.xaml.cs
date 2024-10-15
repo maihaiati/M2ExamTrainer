@@ -19,6 +19,7 @@ using Application = System.Windows.Application;
 using Color = System.Windows.Media.Color;
 using ColorConverter = System.Windows.Media.ColorConverter;
 using MessageBox = System.Windows.Forms.MessageBox;
+using Panel = System.Windows.Controls.Panel;
 using UserControl = System.Windows.Controls.UserControl;
 
 namespace M2ExamCreator.SubUserControls
@@ -221,6 +222,11 @@ namespace M2ExamCreator.SubUserControls
 
             // Save data
             callSaveData();
+        }
+
+        private void OnUnloaded()
+        {
+
         }
     }
 }
