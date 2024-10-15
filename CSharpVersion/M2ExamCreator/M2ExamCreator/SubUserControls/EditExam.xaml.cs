@@ -154,13 +154,13 @@ namespace M2ExamCreator.SubUserControls
             }
 
             // Save question
-            ((InputQues)panelEditQues.Children[0]).saveData();
+            //((InputQues)panelEditQues.Children[0]).saveData();
 
             // Save answer
             int countTrueAnswer = 0;
             for (int i = 1; i < panelEditQues.Children.Count; i++)
             {
-                ((InputAnswer)panelEditQues.Children[i]).saveData();
+                //((InputAnswer)panelEditQues.Children[i]).saveData();
                 if (((InputAnswer)panelEditQues.Children[i]).isTrueAnswer()) countTrueAnswer++;
             }
             if (countTrueAnswer > 1)
