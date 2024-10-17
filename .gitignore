@@ -399,3 +399,4 @@ FodyWeavers.xsd
 
 # Executable files
 *.exe
+/CSharpVersion/testDir
