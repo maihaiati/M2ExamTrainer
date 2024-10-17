@@ -1,0 +1,24 @@
+// Exam.proto
+syntax = "proto3";
+
+message Exam {
+    string name = 1;
+    string author = 2;
+    int64 minute = 3;
+    repeated Question questions = 4;
+}
+
+message Question {
+    int64 id = 1;
+	string content = 2;
+    string image = 3;
+    string audio = 4;
+    bool multiAnswer = 5;
+    repeated Answer answers = 6;
+}
+
+message Answer {
+    int64 id = 1;
+    string content = 2;
+	bool trueAnswer = 3;
+}
